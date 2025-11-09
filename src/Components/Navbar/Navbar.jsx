@@ -52,29 +52,35 @@ const Navbar = () => {
                 </Link>
             </li>
             <li>
-                <button
+                <Link
+                to="/allIssues"
                     onClick={() => scrollToSection("providers")}
                     className="nav-item mt-2"
                 >
-                
-                </button>
+                All Issues
+                </Link>
             </li>
-            <li>
-                <button
+            {
+                user && <> <li>
+                <Link
+                to="/myIssues"
                     onClick={() => scrollToSection("how")}
                     className="nav-item mt-2"
                 >
-                    
-                </button>
+                    My Issues
+                </Link>
             </li>
             <li>
-                <button
+                <Link
+                to="/myContribution"
                     onClick={() => scrollToSection("reviews")}
                     className="nav-item mt-2"
                 >
-                
-                </button>
+                My Contribution
+                </Link>
             </li>
+            </>
+            } 
         </>
     );
 
