@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { toast } from "react-toastify";
 import { ArrowUp } from 'lucide-react';
+import logo from "../../assets/28ea99ca-c20d-4bea-adfa-cd5f91d53bb2.jpeg"
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -113,7 +114,7 @@ const Navbar = () => {
                     <div>
                         <Link to="/">
                             <img
-                                src="/src/assets/28ea99ca-c20d-4bea-adfa-cd5f91d53bb2.jpeg"
+                                src={logo}
                                 alt="Logo"
                                 className="w-16 rounded-full md:ml-16 pb-3 md:pb-0"
                             />
