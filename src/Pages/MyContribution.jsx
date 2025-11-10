@@ -7,7 +7,7 @@ const MyContribution = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`https://community-cleanliness-server-6drj1s8xy.vercel.app/contribution?email=${user.email}`)
+            fetch(`https://community-cleanliness-server-phi.vercel.app/contribution?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);

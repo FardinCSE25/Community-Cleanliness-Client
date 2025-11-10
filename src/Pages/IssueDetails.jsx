@@ -16,7 +16,7 @@ const IssueDetails = () => {
     const issue = issues.find(iss => iss._id == id)
 
     useEffect(() => {
-        fetch(`https://community-cleanliness-server-6drj1s8xy.vercel.app/issues/contribution/${issue._id}`)
+        fetch(`https://community-cleanliness-server-phi.vercel.app/issues/contribution/${issue._id}`)
             .then(res => res.json())
             .then(data => {
                 console.log('bids for this product', data)
@@ -53,7 +53,7 @@ const IssueDetails = () => {
             date: new Date().toLocaleDateString(),
         }
 
-        fetch("https://community-cleanliness-server-6drj1s8xy.vercel.app/contribution", {
+        fetch("https://community-cleanliness-server-phi.vercel.app/contribution", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -160,21 +160,21 @@ const IssueDetails = () => {
                                 <label className="label text-black font-medium">Address</label>
                                 <input type="text" name='address' className="input w-full"
                                 />
-                                <button className="btn bg-secondary text-white mt-4">Pay Contribution</button>
+                                <button className="btn bg-[#006400] text-white mt-4">Pay Contribution</button>
                             </fieldset>
                         </form>
 
                         <div className="modal-action">
                             <form method="dialog">
                                 {/* if there is a button in form, it will close the modal */}
-                                <button className="btn bg-primary text-white">Cancel</button>
+                                <button className="btn bg-[#228B22] text-white">Cancel</button>
                             </form>
                         </div>
                     </div>
                 </dialog>
             </div>
             <div className='w-11/12 mx-auto'>
-                <h3 className="text-3xl font-semibold my-6">Contributions for this Issue: <span className='text-primary'>{contribution.length}</span></h3>
+                <h3 className="text-3xl font-semibold my-6">Contributions for this Issue: <span className='text-[#228B22]'>{contribution.length}</span></h3>
                 <div className="overflow-x-auto mb-6 min-h-[200px]">
                     <table className="table">
                         {/* head */}

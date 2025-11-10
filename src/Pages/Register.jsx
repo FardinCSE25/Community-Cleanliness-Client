@@ -127,14 +127,14 @@ const Register = () => {
                         {/* Name Input */}
                         <div>
                             <label className="text-lg font-medium text-gray-700 flex items-center mb-1">
-                                <User className="w-5 h-5 mr-2 text-blue-500" /> Name
+                                <User className="w-5 h-5 mr-2 text-green-500" /> Name
                             </label>
                             <input
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 name="name"
                                 type="text"
-                                className="input w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150"
+                                className="input w-full p-3 bg-white text-black border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-150"
                                 placeholder="Your Name"
                                 required
                             />
@@ -150,7 +150,7 @@ const Register = () => {
                                 onChange={(e) => setEmail(e.target.value)}
                                 name='email'
                                 type="email"
-                                className="input w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150"
+                                className="input w-full bg-white text-black p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-150"
                                 placeholder="Your Email"
                                 required
                             />
@@ -166,7 +166,7 @@ const Register = () => {
                                 onChange={(e) => setPhoto(e.target.value)}
                                 name='photo'
                                 type="text"
-                                className="input w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150"
+                                className="input w-full bg-white text-black p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-150"
                                 placeholder="Your Photo URL (Optional)"
                             />
                         </div>
@@ -174,7 +174,7 @@ const Register = () => {
                         {/* Password Input with Toggle */}
                         <div>
                             <label className="text-lg font-medium text-gray-700 flex items-center mb-1">
-                                <Lock className="w-5 h-5 mr-2 text-purple-500" /> Password
+                                <Lock className="w-5 h-5 mr-2 text-green-500" /> Password
                             </label>
                             <div className="relative">
                                 <input
@@ -182,7 +182,7 @@ const Register = () => {
                                     onChange={(e) => setPassword(e.target.value)}
                                     name='password'
                                     type={showPassword ? 'text' : 'password'}
-                                    className="input w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 pr-10"
+                                    className="input w-full bg-white text-black p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-150 pr-10"
                                     placeholder="Password"
                                     required
                                 />
@@ -190,7 +190,7 @@ const Register = () => {
                                 <button
                                     type="button"
                                     onClick={() => setShowPassword(!showPassword)}
-                                    className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-blue-500 transition"
+                                    className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-green-500 transition"
                                     aria-label={showPassword ? 'Hide password' : 'Show password'}
                                 >
                                     {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
@@ -200,7 +200,7 @@ const Register = () => {
 
                         <button type="submit"
                                 onClick={handleGoogleSignIn}
-                                className="group relative flex items-center justify-center w-full px-6 py-3.5 bg-white text-gray-700 font-medium rounded-xl border border-gray-300 hover:border-gray-400 shadow-sm hover:shadow-lg transition-all duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:ring-opacity-50"
+                                className="group relative flex items-center justify-center w-full px-6 py-3.5 bg-white text-gray-700 font-medium rounded-xl border border-gray-300 hover:border-gray-400 shadow-sm hover:shadow-lg transition-all duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-4 focus:ring-green-100 focus:ring-opacity-50"
                             >
 
                                 <div className="absolute inset-0 rounded-xl bg-linear-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -translate-x-full group-hover:translate-x-full" />
@@ -233,7 +233,7 @@ const Register = () => {
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                             className="w-full cursor-pointer text-xl py-3 mt-6 rounded-xl font-bold text-white shadow-lg 
-                                       bg-primary hover:from-blue-700 hover:to-cyan-600 
+                                       bg-[#228B22] hover:from-green-700 hover:to-cyan-600 
                                        transition duration-300 flex items-center justify-center space-x-2"
                         >
                             <LogIn className="w-5 h-5" />
@@ -244,7 +244,7 @@ const Register = () => {
                     {/* Login Link */}
                     <p className='text-center text-base mt-4 text-gray-600'>
                         Already have an account?
-                        <Link to="/login" className='text-primary font-semibold ml-1 hover:underline'>
+                        <Link to="/login" className='text-[#228B22] font-semibold ml-1 hover:underline'>
                             Login
                         </Link>
                     </p>
@@ -252,7 +252,7 @@ const Register = () => {
 
                 {/* Right Side: Animated Visual Element (Lottie Placeholder) */}
                 <motion.div
-                    className="hidden lg:block w-full lg:w-1/2 p-16 bg-primary flex items-center justify-center relative"
+                    className="hidden lg:block w-full lg:w-1/2 p-16 bg-[#228B22] flex items-center justify-center relative"
                     variants={imageVariants}
                     initial="hidden"
                     animate="visible"

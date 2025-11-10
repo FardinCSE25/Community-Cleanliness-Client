@@ -20,11 +20,11 @@ const AllIssuesUI = ({ issue }) => {
             {/* Content */}
             <div className="p-4">
 
-                <span className="text-xs px-3 py-1 rounded-full bg-secondary text-white">
+                <span className="text-xs px-3 py-1 rounded-full bg-[#006400] text-white">
                     {issue.category}
                 </span>
 
-                <h2 className="text-lg font-semibold mt-2">
+                <h2 className="text-lg font-semibold mt-2 text-black">
                     {issue.title}
                 </h2>
 

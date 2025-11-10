@@ -23,7 +23,7 @@ const Error = () => {
                 <div className='mx-auto'>
                     <Link 
                         to={"/"} 
-                        className='px-6 py-3 md:py-4 btn bg-primary text-white w-full md:w-auto'
+                        className='px-6 py-3 md:py-4 btn bg-[#228B22] text-white w-full md:w-auto'
                     >
                         Go Back!
                     </Link>

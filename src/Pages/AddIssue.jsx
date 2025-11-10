@@ -32,7 +32,7 @@ const AddIssue = () => {
             date: new Date().toLocaleDateString(),
         }
 
-        fetch("https://community-cleanliness-server-6drj1s8xy.vercel.app/issues", {
+        fetch("https://community-cleanliness-server-phi.vercel.app/issues", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -125,7 +125,7 @@ const AddIssue = () => {
                 <input type="hidden" name="date" />
 
                 {/* Submit */}
-                <button className="btn btn-primary w-full mt-4 text-white">Submit</button>
+                <button className="btn btn-[#228B22] w-full mt-4 text-white">Submit</button>
 
             </form>
         </div>

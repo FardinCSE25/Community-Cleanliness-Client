@@ -107,7 +107,7 @@ const HeroSlider = () => {
               >
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-left">
                   {slide.title}{" "}
-                  <span className="block text-transparent bg-clip-text bg-primary">
+                  <span className="block text-transparent bg-clip-text bg-[#228B22]">
                     {slide.highlight}
                   </span>
                 </h1>
@@ -118,11 +118,11 @@ const HeroSlider = () => {
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-start">
                   <button
-                    className="group relative px-8 py-4 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-                    style={{ backgroundColor: "var(--color-primary)" }}
+                    className="group relative px-8 py-4 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl bg-[#228B22]"
+                    // style={{ backgroundColor: "var(--color-[#228B22])" }}
                   >
                     <span className="relative z-10">{slide.buttonText}</span>
-                    <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-[#228B22] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div className="absolute inset-0 bg-white/10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                   </button>
                   
@@ -163,7 +163,7 @@ const HeroSlider = () => {
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               index === currentSlide
-                ? "bg-primary scale-125"
+                ? "bg-[#228B22] scale-125"
                 : "bg-white/50 hover:bg-white/80"
             }`}
           />
@@ -173,7 +173,7 @@ const HeroSlider = () => {
       {/* Progress Bar */}
       <div className="absolute top-0 left-0 w-full h-1 z-40 bg-gray-600/30">
         <div
-          className="h-full bg-primary transition-width duration-5000 ease-linear"
+          className="h-full bg-[#228B22] transition-width duration-5000 ease-linear"
           style={{ width: "100%" }}
         ></div>
       </div>

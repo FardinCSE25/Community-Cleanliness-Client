@@ -35,7 +35,7 @@ const Footer = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="bg-primary py-12 rounded-t-[3rem] md:rounded-t-3xl shadow-2xl"
+                className="bg-[#228B22] py-12 rounded-t-[3rem] md:rounded-t-3xl shadow-2xl"
             >
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-6">
                     <h3 className="text-3xl font-bold text-white mb-4 md:mb-0 text-center md:text-left">
@@ -44,7 +44,7 @@ const Footer = () => {
                     <motion.button
                         whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(255,255,255,0.😎" }}
                         whileTap={{ scale: 0.95 }}
-                        className="flex items-center space-x-2 bg-white text-primary font-semibold py-3 px-8 rounded-full shadow-lg transition-colors duration-200"
+                        className="flex items-center space-x-2 bg-white text-[#228B22] font-semibold py-3 px-8 rounded-full shadow-lg transition-colors duration-200"
                     >
                         <span>Start Learning Today</span>
                         <ArrowRight className="w-5 h-5" />
@@ -61,8 +61,8 @@ const Footer = () => {
                     
                     {/* Column 1: Brand Info */}
                     <motion.div variants={item} className="space-y-4 col-span-2 md:col-span-1">
-                        <div className="flex items-center space-x-2 text-xl font-bold text-primary">
-                            <BookOpen className="w-6 h-6 text-primary" />
+                        <div className="flex items-center space-x-2 text-xl font-bold text-[#228B22]">
+                            <BookOpen className="w-6 h-6 text-[#228B22]" />
                             <span>Community Cleanliness & Issue Reporting Portal</span>
                         </div>
                         <p className="text-gray-600 text-sm">
@@ -70,35 +70,35 @@ const Footer = () => {
                         </p>
                         <div className="flex items-center space-x-2 text-gray-600">
                             <Mail className="w-4 h-4 text-blue-500" />
-                            <a href="mailto:contact@skillswap.com" className="hover:text-primary transition">contact@CC&IRP.com</a>
+                            <a href="mailto:contact@skillswap.com" className="hover:text-[#228B22] transition">contact@CC&IRP.com</a>
                         </div>
                     </motion.div>
 
                     {/* Column 2: Services */}
                     <motion.nav variants={item} className="space-y-3">
                         <h6 className="text-lg font-bold text-gray-800 border-b-2 border-blue-200 pb-1">Services</h6>
-                        <a className="text-gray-600 hover:text-primary transition block text-sm">Branding Sessions</a>
-                        <a className="text-gray-600 hover:text-primary transition block text-sm">Skill Workshops</a>
-                        <a className="text-gray-600 hover:text-primary transition block text-sm">Personalized Coaching</a>
-                        <a className="text-gray-600 hover:text-primary transition block text-sm">Provider Onboarding</a>
+                        <a className="text-gray-600 hover:text-[#228B22] transition block text-sm">Branding Sessions</a>
+                        <a className="text-gray-600 hover:text-[#228B22] transition block text-sm">Skill Workshops</a>
+                        <a className="text-gray-600 hover:text-[#228B22] transition block text-sm">Personalized Coaching</a>
+                        <a className="text-gray-600 hover:text-[#228B22] transition block text-sm">Provider Onboarding</a>
                     </motion.nav>
 
                     {/* Column 3: Company */}
                     <motion.nav variants={item} className="space-y-3">
                         <h6 className="text-lg font-bold text-gray-800 border-b-2 border-blue-200 pb-1">Company</h6>
-                        <a className="text-gray-600 hover:text-primary transition block text-sm">About Us</a>
-                        <a className="text-gray-600 hover:text-primary transition block text-sm">Contact</a>
-                        <a className="text-gray-600 hover:text-primary transition block text-sm">Careers</a>
-                        <a className="text-gray-600 hover:text-primary transition block text-sm">Press Kit</a>
+                        <a className="text-gray-600 hover:text-[#228B22] transition block text-sm">About Us</a>
+                        <a className="text-gray-600 hover:text-[#228B22] transition block text-sm">Contact</a>
+                        <a className="text-gray-600 hover:text-[#228B22] transition block text-sm">Careers</a>
+                        <a className="text-gray-600 hover:text-[#228B22] transition block text-sm">Press Kit</a>
                     </motion.nav>
 
                     {/* Column 4: Legal */}
                     <motion.nav variants={item} className="space-y-3">
                         <h6 className="text-lg font-bold text-gray-800 border-b-2 border-blue-200 pb-1">Legal</h6>
-                        <a className="text-gray-600 hover:text-primary transition block text-sm">Terms of Use</a>
-                        <a className="text-gray-600 hover:text-primary transition block text-sm">Privacy Policy</a>
-                        <a className="text-gray-600 hover:text-primary transition block text-sm">Cookie Policy</a>
-                        <a className="text-gray-600 hover:text-primary transition block text-sm">Trust & Safety</a>
+                        <a className="text-gray-600 hover:text-[#228B22] transition block text-sm">Terms of Use</a>
+                        <a className="text-gray-600 hover:text-[#228B22] transition block text-sm">Privacy Policy</a>
+                        <a className="text-gray-600 hover:text-[#228B22] transition block text-sm">Cookie Policy</a>
+                        <a className="text-gray-600 hover:text-[#228B22] transition block text-sm">Trust & Safety</a>
                     </motion.nav>
 
                 </div>

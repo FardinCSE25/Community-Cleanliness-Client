@@ -1,7 +1,6 @@
 import React, { useState, use, useEffect } from "react";
 import { Link, NavLink } from "react-router"; 
 import { AuthContext } from "../../Provider/AuthProvider";
-import '../../../src/App.css'
 import { toast } from "react-toastify";
 import { ArrowUp } from 'lucide-react';
 import logo from "../../assets/28ea99ca-c20d-4bea-adfa-cd5f91d53bb2.jpeg"
@@ -46,7 +45,7 @@ const Navbar = () => {
                 <NavLink
                     to="/"
                 >
-                    <li className="text-lg mr-5">
+                    <li className="text-lg mr-5 ">
                         Home
                     </li>
                 </NavLink>
@@ -101,7 +100,7 @@ const Navbar = () => {
                 <div className="w-full px-5 pt-2 2xl:max-w-screen-2xl flex items-center justify-between mt-5 md:mt-2">
                     {/* Mobile Dropdown */}
                     <div className="md:hidden font-bold text-3xl dropdown">
-                        <button tabIndex={0} className="mr-5 text-primary">
+                        <button tabIndex={0} className="mr-5 text-[#228B22]">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-7 w-7"
