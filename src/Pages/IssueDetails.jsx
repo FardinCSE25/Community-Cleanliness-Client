@@ -16,7 +16,7 @@ const IssueDetails = () => {
     const issue = issues.find(iss => iss._id == id)
 
     useEffect(() => {
-        fetch(`https://community-cleanliness-server-9ktkhbgsn.vercel.app/issues/contribution/${issue._id}`)
+        fetch(`https://community-cleanliness-server-6drj1s8xy.vercel.app/issues/contribution/${issue._id}`)
             .then(res => res.json())
             .then(data => {
                 console.log('bids for this product', data)
@@ -53,7 +53,7 @@ const IssueDetails = () => {
             date: new Date().toLocaleDateString(),
         }
 
-        fetch("https://community-cleanliness-server-9ktkhbgsn.vercel.app/contribution", {
+        fetch("https://community-cleanliness-server-6drj1s8xy.vercel.app/contribution", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
