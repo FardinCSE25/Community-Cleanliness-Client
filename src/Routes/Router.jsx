@@ -9,6 +9,7 @@ import IssueDetails from "../Pages/IssueDetails";
 import MyIssues from "../Pages/MyIssues";
 import MyContribution from "../Pages/MyContribution";
 import PrivateRoute from "./PrivateRoute";
+import Loading from "../Components/Loading";
 
 
 const router = createBrowserRouter([
@@ -20,6 +21,8 @@ const router = createBrowserRouter([
             {
                 index: true,
                 Component: Home,
+                loader: () => fetch("http://localhost:5000/recent-issues"),
+                hydrateFallbackElement: <Loading/>
             },
             {
                 path: "/login",
@@ -31,11 +34,15 @@ const router = createBrowserRouter([
             },
             {
                 path: "/allIssues",
-                Component: AllIssues
+                Component: AllIssues,
+                loader: () => fetch("http://localhost:5000/issues"),
+                hydrateFallbackElement: <Loading/>
             },
             {
-                path: "/issueDetails",
-                element: <PrivateRoute><IssueDetails/></PrivateRoute>
+                path: "/issueDetails/:id",
+                element: <PrivateRoute><IssueDetails/></PrivateRoute>,
+                loader: () => fetch("http://localhost:5000/issues"),
+                hydrateFallbackElement: <Loading/>
             },
             {
                 path: "/myIssues",

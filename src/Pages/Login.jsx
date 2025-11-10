@@ -12,6 +12,7 @@ const Login = () => {
     const { login, googleSignIn, setUser} = use(AuthContext)
     const location = useLocation();
     // console.log(location.state);
+
     const navigate = useNavigate()
 
     const handleGoogleSignIn = (e) => {
@@ -22,7 +23,7 @@ const Login = () => {
                 console.log(user);
                 
                 toast.success("Login Successful")
-                // navigate(`${location.state ? location.state : "/"}`)
+                navigate(`${location.state ? location.state : "/"}`)
             })
             .catch(error => {
                 console.log(error);
