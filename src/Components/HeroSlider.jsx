@@ -107,7 +107,7 @@ const HeroSlider = () => {
               >
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-left">
                   {slide.title}{" "}
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]">
+                  <span className="block text-transparent bg-clip-text bg-primary">
                     {slide.highlight}
                   </span>
                 </h1>
@@ -122,7 +122,7 @@ const HeroSlider = () => {
                     style={{ backgroundColor: "var(--color-primary)" }}
                   >
                     <span className="relative z-10">{slide.buttonText}</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div className="absolute inset-0 bg-white/10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                   </button>
                   
@@ -163,7 +163,7 @@ const HeroSlider = () => {
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               index === currentSlide
-                ? "bg-[var(--color-primary)] scale-125"
+                ? "bg-primary scale-125"
                 : "bg-white/50 hover:bg-white/80"
             }`}
           />
@@ -173,7 +173,7 @@ const HeroSlider = () => {
       {/* Progress Bar */}
       <div className="absolute top-0 left-0 w-full h-1 z-40 bg-gray-600/30">
         <div
-          className="h-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] transition-width duration-5000 ease-linear"
+          className="h-full bg-primary transition-width duration-5000 ease-linear"
           style={{ width: "100%" }}
         ></div>
       </div>
