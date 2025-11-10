@@ -1,13 +1,13 @@
 import React, { useState, use, useEffect } from "react";
-import { Link, useLocation } from "react-router"; 
+import { Link, NavLink } from "react-router"; 
 import { AuthContext } from "../../Provider/AuthProvider";
+import '../../../src/App.css'
 import { toast } from "react-toastify";
 import { ArrowUp } from 'lucide-react';
 import logo from "../../assets/28ea99ca-c20d-4bea-adfa-cd5f91d53bb2.jpeg"
 import "./Navbar.css";
 
 const Navbar = () => {
-    const location = useLocation();
     const { user,
          logOut
          } = use(AuthContext);
@@ -32,53 +32,54 @@ const Navbar = () => {
     };
 
     // Smooth scroll helper
-    const scrollToSection = (id) => {
-        const section = document.getElementById(id);
-        if (section) {
-            section.scrollIntoView({ behavior: "smooth" });
-        }
-    };
+    // const scrollToSection = (id) => {
+    //     const section = document.getElementById(id);
+    //     if (section) {
+    //         section.scrollIntoView({ behavior: "smooth" });
+    //     }
+    // };
 
     const navOptions = (
         <>
 
-            <li>
-                <Link
+            
+                <NavLink
                     to="/"
                 >
-                    <button className={`nav-item mt-2 ${location.pathname === "/" ? "active" : ""}`}>
+                    <li className="text-lg">
                         Home
-                    </button>
-                </Link>
-            </li>
-            <li>
-                <Link
+                    </li>
+                </NavLink>
+            
+            
+                <NavLink
                 to="/allIssues"
-                    onClick={() => scrollToSection("providers")}
-                    className="nav-item mt-2"
+                    
                 >
+                    <li className="text-lg">
                 All Issues
-                </Link>
-            </li>
+                </li>
+                </NavLink>
+            
             {
-                user && <> <li>
-                <Link
+                user && <>
+                <NavLink
                 to="/myIssues"
-                    onClick={() => scrollToSection("how")}
-                    className="nav-item mt-2"
+                    
                 >
+                    <li className="text-lg">
                     My Issues
-                </Link>
-            </li>
-            <li>
-                <Link
+                    </li>
+                </NavLink>
+            
+                <NavLink
                 to="/myContribution"
-                    onClick={() => scrollToSection("reviews")}
-                    className="nav-item mt-2"
+                    
                 >
+                    <li className="text-lg">
                 My Contribution
-                </Link>
-            </li>
+                </li>
+                </NavLink>
             </>
             } 
         </>
