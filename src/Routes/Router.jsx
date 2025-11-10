@@ -10,6 +10,7 @@ import MyIssues from "../Pages/MyIssues";
 import MyContribution from "../Pages/MyContribution";
 import PrivateRoute from "./PrivateRoute";
 import Loading from "../Components/Loading";
+import AddIssue from "../Pages/AddIssue";
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><IssueDetails/></PrivateRoute>,
                 loader: () => fetch("http://localhost:5000/issues"),
                 hydrateFallbackElement: <Loading/>
+            },
+            {
+                path: "/addIssue",
+                element: <PrivateRoute><AddIssue/></PrivateRoute>
             },
             {
                 path: "/myIssues",
