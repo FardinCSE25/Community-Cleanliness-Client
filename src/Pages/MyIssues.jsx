@@ -7,7 +7,7 @@ const MyIssues = () => {
 
          useEffect(() => {
                 if (user?.email) {
-                    fetch(`http://localhost:5000/issues?email=${user.email}`)
+                    fetch(`https://community-cleanliness-server-9ktkhbgsn.vercel.app/issues?email=${user.email}`)
                         .then(res => res.json())
                         .then(data => {
                             console.log(data);
