@@ -3,7 +3,7 @@ import CategoriesSection from '../Components/CategoriesSection';
 import HeroSlider from '../Components/HeroSlider';
 import CommunityStats from '../Components/CommunityStats';
 import VolunteerSection from '../Components/VolunteerSection';
-import RecentIssues from './RecentIssues';
+import RecentIssues from '../Pages/RecentIssues/RecentIssues';
 import { useLoaderData } from 'react-router';
 
 const Home = () => {

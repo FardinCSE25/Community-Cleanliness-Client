@@ -4,7 +4,7 @@ import Layout from "../Layout/Layout";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Error from "../Pages/Error"
-import AllIssues from "../Pages/AllIssues";
+import AllIssues from "../Pages/ AllIssues/AllIssues";
 import IssueDetails from "../Pages/IssueDetails";
 import MyIssues from "../Pages/MyIssues";
 import MyContribution from "../Pages/MyContribution";

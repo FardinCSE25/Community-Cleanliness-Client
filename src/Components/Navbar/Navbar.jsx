@@ -101,7 +101,7 @@ const Navbar = () => {
                 <div className="w-full px-5 pt-2 2xl:max-w-screen-2xl flex items-center justify-between mt-5 md:mt-2">
                     {/* Mobile Dropdown */}
                     <div className="md:hidden font-bold text-3xl dropdown">
-                        <button tabIndex={0} className="mr-5 text-blue-700">
+                        <button tabIndex={0} className="mr-5 text-primary">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-7 w-7"

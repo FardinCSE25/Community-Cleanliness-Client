@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router';
-import AllIssuesUI from './AllIssuesUI';
+import AllIssuesUI from '../ AllIssues/AllIssuesUI';
 
 const AllIssues = () => {
     const issuesList = useLoaderData();

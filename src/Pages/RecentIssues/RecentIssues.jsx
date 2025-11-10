@@ -1,5 +1,5 @@
 import React from 'react';
-import RecentIssuesUI from './RecentIssuesUI';
+import RecentIssuesUI from '../RecentIssues/RecentIssuesUI';
 
 const RecentIssues = ({ issuesList }) => {
 
