@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import img1 from "../assets/image1.avif";
 import img2 from "../assets/image2.jpg";
 import img3 from "../assets/image3.jpg";
+import { Link } from "react-router";
 
 const slides = [
   {
@@ -121,7 +122,7 @@ const HeroSlider = () => {
                     className="group relative px-8 py-4 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl bg-[#228B22]"
                     // style={{ backgroundColor: "var(--color-[#228B22])" }}
                   >
-                    <span className="relative z-10">{slide.buttonText}</span>
+                    <Link to="/login" className="relative z-10">{slide.buttonText}</Link>
                     <div className="absolute inset-0 bg-[#228B22] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div className="absolute inset-0 bg-white/10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                   </button>
