@@ -29,7 +29,7 @@ const AddIssue = () => {
             date: new Date().toLocaleDateString(),
         }
 
-        fetch("https://community-cleanliness-server-phi.vercel.app/issues", {
+        fetch("http://localhost:5000/issues", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

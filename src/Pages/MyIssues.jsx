@@ -7,10 +7,14 @@ const MyIssues = () => {
     const { user } = use(AuthContext)
     const [issues, setIssues] = useState([])
     const issueModalRef = useRef(null);
-
+    const [title, setTitle] = useState("")
+    const [category, setCategory] = useState("")
+    const [amount, setAmount] = useState("")
+    const [description, setDescription] = useState("")
+    
     useEffect(() => {
         if (user?.email) {
-            fetch(`https://community-cleanliness-server-phi.vercel.app/issues?email=${user.email}`)
+            fetch(`http://localhost:5000/issues?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data);
@@ -24,15 +28,19 @@ const MyIssues = () => {
     }
 
     const handleIssueUpdate = (e, id) => {
-        e.preventDefault();
+        console.log(id);
+        
+        // e.preventDefault();
         const updatedIssueData = {
-        title : e.target.title.value,
-        category : e.target.category.value,
-        amount : Number(e.target.amount.value),
-        description : e.target.description.value
+        title : title,
+        category : category,
+        amount : Number(amount),
+        description : description
         }
-
-          fetch(`https://community-cleanliness-server-phi.vercel.app/issues/${id}`, {
+        console.log(id, updatedIssueData);
+    
+        
+          fetch(`http://localhost:5000/issues/${id}`, {
                     method: "PUT",
                     headers: {
                         'content-type': 'application/json'
@@ -71,7 +79,7 @@ const MyIssues = () => {
         })
             .then(res => {
                 if (res.isConfirmed) {
-                    fetch(`https://community-cleanliness-server-phi.vercel.app/issues/${id}`, {
+                    fetch(`http://localhost:5000/issues/${id}`, {
                         method: "DELETE"
                     })
                         .then(res => res.json()
@@ -129,13 +137,13 @@ const MyIssues = () => {
                                     <dialog ref={issueModalRef} className="modal modal-bottom sm:modal-middle">
                                         <div className="modal-box">
                                             <h3 className="font-bold text-lg mb-3 text-center">Update your Issue</h3>
-                                            <form onSubmit={() => handleIssueUpdate(iss._id)}>
+                                            <form >
                                                 <fieldset className="fieldset">
                                                     <label className="label text-black font-medium">Issue Title</label>
-                                                    <input type="text" defaultValue={iss.title} name='title' className="input w-full"
+                                                    <input type="text" onChange={(e)=>setTitle(e.target.value)} defaultValue={iss.title} name='title' className="input w-full"
                                                     />
                                                     <label className="label text-black font-medium">Category</label>
-                                                    <select name="category" defaultValue={iss.category}
+                                                    <select name="category" onChange={(e)=>setCategory(e.target.value)}  defaultValue={iss.category}
                                                         className="select select-bordered w-full" required>
                                                         <option value="">Select Category</option>
                                                         <option value="Garbage">Garbage</option>
@@ -144,12 +152,12 @@ const MyIssues = () => {
                                                         <option value="Road Damage">Road Damage</option>
                                                     </select>
                                                     <label className="label text-black font-medium">Amount</label>
-                                                    <input type="text" name='amount' defaultValue={iss.amount} className="input w-full"
+                                                    <input type="text" onChange={(e)=>setAmount(e.target.value)}  name='amount' defaultValue={iss.amount} className="input w-full"
                                                     />
                                                     <label className="label text-black font-medium">Description</label>
-                                                    <input type="text" name='description' defaultValue={iss.description} className="input w-full"
+                                                    <input type="text" onChange={(e)=>setDescription(e.target.value)}  name='description' defaultValue={iss.description} className="input w-full"
                                                     />
-                                                    <button className="btn bg-[#006400] text-white mt-4">Update</button>
+                                                    <button onClick={() => handleIssueUpdate(iss._id)} className="btn bg-[#006400] text-white mt-4">Update</button>
                                                 </fieldset>
                                             </form>
 
