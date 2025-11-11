@@ -1,5 +1,6 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
+import jsPDF from 'jspdf';
 
 const MyContribution = () => {
     const { user } = use(AuthContext)
@@ -15,6 +16,35 @@ const MyContribution = () => {
                 })
         }
     }, [user?.email])
+
+    const handleDownloadPDF =(title, amount, date, category) =>{
+        const pdf = new jsPDF()
+        let x = 20;
+    let y = 20;
+
+    pdf.setFontSize(18);
+    pdf.text("Issue Contribution Bill", x, y);
+
+    y += 10;
+    pdf.setFontSize(12);
+    pdf.text(`Title: ${title}`, x, y);
+
+    y += 8;
+    pdf.text(`Category: ${category}`, x, y);
+
+    y += 8;
+    pdf.text(`Amount: ${amount}`, x, y);
+
+    y += 8;
+    pdf.text(`Date: ${date}`, x, y);
+
+    // 4) File Name সেট করা
+    const fileName = `${title}_contribution-bill.pdf`;
+
+    // 5) PDF Download করা
+    pdf.save(fileName);
+
+    }
 
     return (
         <div className='w-11/12 mx-auto min-h-screen'>
@@ -43,7 +73,6 @@ const MyContribution = () => {
                                             <span className="text-xs dark:text-white text-gray-500 mt-1">{con.category}</span>
                                         </div>
                                     </td>
-
                                     <td className="text-center font-semibold dark:text-white text-green-700">
                                         ৳ {con.amount}
                                     </td>
@@ -53,7 +82,7 @@ const MyContribution = () => {
                                     </td>
 
                                     <td className="text-center">
-                                        <button className="btn btn-sm bg-green-600 hover:bg-green-700 text-white px-4 py-1 rounded-md">
+                                        <button onClick={()=> handleDownloadPDF(con.title, con.amount, con.date, con.category)} className="btn btn-sm bg-green-600 hover:bg-green-700 text-white px-4 py-1 rounded-md">
                                             Download
                                         </button>
                                     </td>

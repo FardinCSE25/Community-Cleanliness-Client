@@ -1,6 +1,5 @@
 import { use, useState } from "react";
 import { AuthContext } from '../Provider/AuthProvider';
-import { toast } from "react-toastify";
 import Swal from 'sweetalert2';
 
 const AddIssue = () => {
@@ -18,16 +17,14 @@ const AddIssue = () => {
         const description = e.target.description.value;
         console.log(title, category, location, image, name, email, amount, description);
 
-        toast.success("Issue Report Submitted Successfully!");
-
         const newIssue = {
             title: title,
             category: category,
             location: location,
             description: description,
             image: image,
-            status : "ongoing",
-            amount: amount,
+            status: "ongoing",
+            amount: Number(amount),
             email: email,
             date: new Date().toLocaleDateString(),
         }
@@ -42,7 +39,7 @@ const AddIssue = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                     Swal.fire({
+                    Swal.fire({
                         position: "center",
                         icon: "success",
                         title: "New Issue Added!",
@@ -56,7 +53,7 @@ const AddIssue = () => {
                 }
 
             })
-        
+
     };
 
     return (
@@ -68,7 +65,7 @@ const AddIssue = () => {
                 {/* Title */}
                 <div>
                     <label className="label"><span className="label-text">Issue Title</span></label>
-                    <input type="text" name="title" 
+                    <input type="text" name="title"
                         className="input input-bordered w-full" required />
                 </div>
 

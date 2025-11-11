@@ -143,8 +143,14 @@ const IssueDetails = () => {
                                 <input type="text" name='title' className="input w-full"
                                 />
                                 <label className="label text-black font-medium">Category</label>
-                                <input type="text" name='category' className="input w-full"
-                                />
+                                <select name="category"
+                                    className="select select-bordered w-full" required>
+                                    <option value="">Select Category</option>
+                                    <option value="Garbage">Garbage</option>
+                                    <option value="Illegal Construction">Illegal Construction</option>
+                                    <option value="Broken Public Property">Broken Public Property</option>
+                                    <option value="Road Damage">Road Damage</option>
+                                </select>
                                 <label className="label text-black font-medium">Amount</label>
                                 <input type="text" name='amount' className="input w-full"
                                 />

@@ -1,5 +1,5 @@
 import React, { useState, use, useEffect } from "react";
-import { Link, NavLink } from "react-router"; 
+import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { toast } from "react-toastify";
 import { ArrowUp } from 'lucide-react';
@@ -8,11 +8,21 @@ import "./Navbar.css";
 
 const Navbar = () => {
     const { user,
-         logOut
-         } = use(AuthContext);
-         console.log(user);
-         
+        logOut
+    } = use(AuthContext);
+    // console.log(user);
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
     const [showTopBtn, setShowTopBtn] = useState(false);
+
+    useEffect(() => {
+        const html = document.querySelector('html')
+        html.setAttribute("data-theme", theme)
+        localStorage.setItem("theme", theme)
+    }, [theme])
+
+    const handleTheme = (checked) => {
+        setTheme(checked ? "dark" : "light")
+    }
 
     // Scroll event to toggle "scroll to top" button
     useEffect(() => {
@@ -41,54 +51,54 @@ const Navbar = () => {
     const navOptions = (
         <>
 
-            
-                <NavLink
-                    to="/"
-                >
-                    <li className="text-lg mr-5 ">
-                        Home
-                    </li>
-                </NavLink>
-            
-            
-                <NavLink
-                to="/allIssues"
-                    
-                >
-                    <li className="text-lg mr-5">
-                All Issues
+
+            <NavLink
+                to="/"
+            >
+                <li className="text-lg mr-5 ">
+                    Home
                 </li>
-                </NavLink>
-            
+            </NavLink>
+
+
+            <NavLink
+                to="/allIssues"
+
+            >
+                <li className="text-lg mr-5">
+                    All Issues
+                </li>
+            </NavLink>
+
             {
                 user && <>
-                 <NavLink
-                to="/addIssue"
-                    
-                >
-                    <li className="text-lg mr-5">
-                Add Issue
-                </li>
-                </NavLink>
-                <NavLink
-                to="/myIssues"
-                    
-                >
-                    <li className="text-lg mr-5">
-                    My Issues
-                    </li>
-                </NavLink>
-            
-                <NavLink
-                to="/myContribution"
-                    
-                >
-                    <li className="text-lg mr-5">
-                My Contribution
-                </li>
-                </NavLink>
-            </>
-            } 
+                    <NavLink
+                        to="/addIssue"
+
+                    >
+                        <li className="text-lg mr-5">
+                            Add Issue
+                        </li>
+                    </NavLink>
+                    <NavLink
+                        to="/myIssues"
+
+                    >
+                        <li className="text-lg mr-5">
+                            My Issues
+                        </li>
+                    </NavLink>
+
+                    <NavLink
+                        to="/myContribution"
+
+                    >
+                        <li className="text-lg mr-5">
+                            My Contribution
+                        </li>
+                    </NavLink>
+                </>
+            }
         </>
     );
 
@@ -144,25 +154,45 @@ const Navbar = () => {
 
                     {/* User Info */}
                     <div className="flex justify-between items-center gap-7">
-                        {
-                            user && <> <button
-                            >
-                                <img
-                                    referrerPolicy="no-referrer"
-                                    className="w-12 rounded-full"
-                                    src={user.photoURL}
-                                    alt=""
-                                />
-                            </button>
-                            </>
+                        {user &&
+                            <div className="dropdown dropdown-end z-50">
+                                <div
+                                    tabIndex={0}
+                                    role="button"
+                                    className="btn btn-ghost btn-circle avatar"
+                                >
+                                    <div className="w-9 border-2 border-[#228B22] rounded-full">
+                                        <img
+                                            alt="Tailwind CSS Navbar component"
+                                            referrerPolicy="no-referrer"
+                                            src={user.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
+                                        />
+                                    </div>
+                                </div>
+                                <ul tabIndex="-1"
+                                    className="menu  menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-40 p-5 shadow" >
+                                    <li>
+                                        <button onClick={handleLogout} className="btn text-white bg-[#228B22]"
+                                        >
+                                            Logout
+                                        </button>
+                                    </li>
+
+                                    <label className="toggle text-base-content mx-auto mt-3">
+                                        <input type="checkbox" value="synthwave"
+                                            onChange={(e) => handleTheme(e.target.checked)}
+                                            defaultChecked={localStorage.getItem('theme') === "dark"}
+                                            className="theme-controller" />
+                                        <svg aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></g></svg>
+
+                                        <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></g></svg>
+
+                                    </label>
+
+
+                                </ul>
+                            </div>
                         }
-    {
-        user && <> <button onClick={handleLogout} className="btn text-white bg-[#228B22]"
-                            >
-                                Logout
-                            </button>
-                            </>
-    }
 
                         {
                             !user && <Link to="/login" className="btn text-white bg-[#228B22]">
