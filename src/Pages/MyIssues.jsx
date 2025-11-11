@@ -108,12 +108,12 @@ const MyIssues = () => {
                     <tbody className="text-sm">
                         {
                             issues.map((iss, index) => (
-                                <tr key={iss._id} className="hover:bg-gray-50 transition">
+                                <tr key={iss._id} className="hover:bg-gray-50 dark:hover:bg-black transition">
                                     <td className="text-center font-medium">{index + 1}</td>
 
                                     <td>
                                         <div className="flex flex-col justify-center">
-                                            <h1 className="font-semibold text-gray-800">{iss.title}</h1>
+                                            <h1 className="font-semibold dark:text-white text-black">{iss.title}</h1>
                                         </div>
                                     </td>
                                     <td className="text-center">

@@ -62,7 +62,7 @@ const MyContribution = () => {
                     <tbody className="text-sm">
                         {
                             contribution.map((con, index) => (
-                                <tr key={con._id} className="hover:bg-gray-50 transition">
+                                <tr key={con._id} className="hover:bg-gray-50 dark:hover:bg-black transition">
                                     <td className="text-center font-medium">{index + 1}</td>
 
                                     <td>

@@ -87,19 +87,19 @@ const IssueDetails = () => {
 
                 {/* Title Section */}
                 <div className="mb-6">
-                    <h1 className="text-3xl font-bold text-gray-800">{issue.title}</h1>
+                    <h1 className="text-3xl font-bold dark:text-white text-gray-800">{issue.title}</h1>
 
                     <div className="flex items-center gap-3 mt-3">
                         <span className="text-sm px-3 py-1 rounded-full bg-green-100 text-green-700">
                             {issue.category}
                         </span>
 
-                        <div className="flex items-center gap-1 text-gray-500 text-sm">
+                        <div className="flex items-center dark:text-white gap-1 text-gray-500 text-sm">
                             <MapPin size={16} />
                             {issue.location}
                         </div>
 
-                        <div className="flex items-center gap-1 text-gray-500 text-sm">
+                        <div className="flex items-center dark:text-white gap-1 text-gray-500 text-sm">
                             <Calendar size={16} />
                             {issue.date}
                         </div>
@@ -116,7 +116,7 @@ const IssueDetails = () => {
                 </div>
 
                 {/* Description */}
-                <p className="mt-6 text-gray-700 leading-relaxed text-lg">
+                <p className="mt-6 dark:text-white text-gray-700 leading-relaxed text-lg">
                     {issue.description}
                 </p>
 
@@ -139,10 +139,10 @@ const IssueDetails = () => {
                         <h3 className="font-bold text-lg mb-3 text-center">Make your Contribution</h3>
                         <form onSubmit={handleContributionSubmit}>
                             <fieldset className="fieldset">
-                                <label className="label text-black font-medium">Issue Title</label>
+                                <label className="label dark:text-white text-black font-medium">Issue Title</label>
                                 <input type="text" name='title' className="input w-full"
                                 />
-                                <label className="label text-black font-medium">Category</label>
+                                <label className="label dark:text-white text-black font-medium">Category</label>
                                 <select name="category"
                                     className="select select-bordered w-full" required>
                                     <option value="">Select Category</option>
@@ -151,19 +151,19 @@ const IssueDetails = () => {
                                     <option value="Broken Public Property">Broken Public Property</option>
                                     <option value="Road Damage">Road Damage</option>
                                 </select>
-                                <label className="label text-black font-medium">Amount</label>
+                                <label className="label dark:text-white text-black font-medium">Amount</label>
                                 <input type="text" name='amount' className="input w-full"
                                 />
-                                <label className="label text-black font-medium">Contributor Name</label>
+                                <label className="label dark:text-white text-black font-medium">Contributor Name</label>
                                 <input type="text" name='name' className="input w-full"
                                 />
                                 {/* email */}
-                                <label className="label text-black font-medium">Email</label>
+                                <label className="label dark:text-white text-black font-medium">Email</label>
                                 <input type="email" className="input w-full" name='email' readOnly defaultValue={user?.email} />
-                                <label className="label text-black font-medium">Phone Number</label>
+                                <label className="label dark:text-white text-black font-medium">Phone Number</label>
                                 <input type="text" name='phone' className="input w-full"
                                 />
-                                <label className="label text-black font-medium">Address</label>
+                                <label className="label dark:text-white text-black font-medium">Address</label>
                                 <input type="text" name='address' className="input w-full"
                                 />
                                 <button className="btn bg-[#006400] text-white mt-4">Pay Contribution</button>
