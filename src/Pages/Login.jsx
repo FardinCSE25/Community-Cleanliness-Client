@@ -67,6 +67,7 @@ const Login = () => {
     };
     return (
         <>
+        <title>Community Cleanliness- Login</title>
             <style>
                 {`
                     @keyframes pulse-bg {

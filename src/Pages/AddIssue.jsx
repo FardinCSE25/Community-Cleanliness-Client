@@ -57,7 +57,9 @@ const AddIssue = () => {
     };
 
     return (
+
         <div className="max-w-3xl mx-auto p-8 bg-base-200 rounded-xl shadow-lg my-10">
+            <title>Community Cleanliness- Add Issue</title>
             <h2 className="text-2xl font-bold text-center mb-6">Add a New Issue</h2>
 
             <form onSubmit={handleSubmit} className="space-y-4">

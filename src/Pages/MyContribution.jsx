@@ -46,6 +46,7 @@ const MyContribution = () => {
 
     return (
         <div className='w-11/12 mx-auto min-h-screen'>
+            <title>Community Cleanliness- My Contribution</title>
             <h3 className='text-2xl my-6'>My Contributions : {contribution.length}</h3>
             <div className="overflow-x-auto">
                 <table className="table mb-7 w-full border border-gray-200 rounded-xl overflow-hidden">

@@ -110,6 +110,7 @@ const Register = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4 font-inter">
+            <title>Community Cleanliness- Register</title>
             <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row rounded-3xl shadow-2xl overflow-hidden bg-white">
 
                 {/* Left Side: Animated Sign Up Form */}

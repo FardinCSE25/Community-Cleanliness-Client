@@ -101,6 +101,7 @@ const MyIssues = () => {
 
     return (
         <div className='w-11/12 mx-auto min-h-screen'>
+            <title>Community Cleanliness- My Issues</title>
             <h3 className='text-2xl my-6'>My Issues : {issues.length}</h3>
             <div className="overflow-x-auto">
                 <table className="table mb-7 w-full border border-gray-200 rounded-xl overflow-hidden">
@@ -115,7 +116,8 @@ const MyIssues = () => {
 
                     <tbody className="text-sm">
                         {
-                            issues.map((iss, index) => (
+                            issues ? (
+                                issues.map((iss, index) => (
                                 <tr key={iss._id} className="hover:bg-gray-50 dark:hover:bg-black transition">
                                     <td className="text-center font-medium">{index + 1}</td>
 
@@ -171,6 +173,7 @@ const MyIssues = () => {
                                     </dialog>
                                 </tr>
                             ))
+                            ) : (<Loading/>)
                         }
                     </tbody>
                 </table>
