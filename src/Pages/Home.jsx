@@ -10,7 +10,7 @@ const Home = () => {
     const issuesList = useLoaderData()
     return (
         <div className='min-h-screen'>
-            <HeroSlider />
+            <HeroSlider/>
             <CategoriesSection />
             <RecentIssues issuesList={issuesList} />
             <CommunityStats />

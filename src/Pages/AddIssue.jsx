@@ -117,7 +117,7 @@ const AddIssue = () => {
                 <div>
                     <label className="label"><span className="label-text">Email</span></label>
                     <input type="text" name="email" readOnly defaultValue={user?.email}
-                        className="input input-bordered w-full bg-gray-100" />
+                        className="input input-bordered w-full light:bg-gray-100" />
                 </div>
 
                 {/* Hidden Fields */}
@@ -125,7 +125,7 @@ const AddIssue = () => {
                 <input type="hidden" name="date" />
 
                 {/* Submit */}
-                <button className="btn btn-[#228B22] w-full mt-4 text-white">Submit</button>
+                <button className="btn bg-[#228B22] w-full mt-4 text-white">Submit</button>
 
             </form>
         </div>

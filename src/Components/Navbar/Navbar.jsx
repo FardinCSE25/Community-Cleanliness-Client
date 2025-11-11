@@ -95,7 +95,7 @@ const Navbar = () => {
     return (
         <>
             <div
-                className={`bg-white shadow-lg bg-opacity-95 pb-4 backdrop-blur-sm w-full flex justify-center top-0 z-50 md:px-7 transition-all duration-300 ease-in-out`}
+                className={`bg-white mb-32 shadow-lg bg-opacity-95 pb-4 backdrop-blur-sm w-full flex justify-center top-0 z-50 md:px-7 transition-all duration-300 ease-in-out`}
             >
                 <div className="w-full px-5 pt-2 2xl:max-w-screen-2xl flex items-center justify-between mt-5 md:mt-2">
                     {/* Mobile Dropdown */}

@@ -22,9 +22,11 @@ const MyIssues = () => {
             <div className="overflow-x-auto">
                 <table className="table mb-7 w-full border border-gray-200 rounded-xl overflow-hidden">
                     <thead className="bg-gray-100 text-gray-700 text-sm">
-                        <tr>
+                        <tr className='w-full'>
                             <th className="py-3 text-center">No.</th>
                             <th className="py-3">Issue</th>
+                            <th className="py-3"></th>
+                            <th className="py-3"></th>
                         </tr>
                     </thead>
 

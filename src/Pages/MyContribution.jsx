@@ -39,16 +39,16 @@ const MyContribution = () => {
 
                                     <td>
                                         <div className="flex flex-col justify-center">
-                                            <h1 className="font-semibold text-gray-800">{con.title}</h1>
-                                            <span className="text-xs text-gray-500 mt-1">{con.category}</span>
+                                            <h1 className="font-semibold dark:text-white text-gray-800">{con.title}</h1>
+                                            <span className="text-xs dark:text-white text-gray-500 mt-1">{con.category}</span>
                                         </div>
                                     </td>
 
-                                    <td className="text-center font-semibold text-green-700">
+                                    <td className="text-center font-semibold dark:text-white text-green-700">
                                         ৳ {con.amount}
                                     </td>
 
-                                    <td className="text-center text-gray-600">
+                                    <td className="text-center dark:text-white text-gray-600">
                                         {con.date}
                                     </td>
 

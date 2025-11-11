@@ -6,7 +6,7 @@ const AllIssuesUI = ({ issue }) => {
     console.log(issue);
     if (!issue) return <Loading />
     return (
-        <div className="my-6rounded-xl overflow-hidden bg-white border shadow-sm hover:shadow-md transition">
+        <div className="my-6 rounded-xl overflow-hidden bg-white border shadow-sm hover:shadow-md transition">
 
             {/* Image */}
             <div className="h-48 w-full bg-gray-200 overflow-hidden">
