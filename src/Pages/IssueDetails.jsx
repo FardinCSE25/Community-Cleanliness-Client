@@ -83,6 +83,7 @@ const IssueDetails = () => {
     if (!issue) return <Loading />
     return (
         <>
+        <title>Community Cleanliness- Issue Details</title>
             <div className="max-w-5xl mx-auto p-6">
 
                 {/* Title Section */}
