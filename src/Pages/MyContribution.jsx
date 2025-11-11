@@ -38,10 +38,8 @@ const MyContribution = () => {
     y += 8;
     pdf.text(`Date: ${date}`, x, y);
 
-    // 4) File Name সেট করা
     const fileName = `${title}_contribution-bill.pdf`;
 
-    // 5) PDF Download করা
     pdf.save(fileName);
 
     }
