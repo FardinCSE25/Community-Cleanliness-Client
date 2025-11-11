@@ -39,6 +39,7 @@ const Login = () => {
             .then((userData) => {
                 const user = userData.user;
                 console.log(user)
+                
                 setUser(user)
                 toast.success("Login Successful")
                 // console.log(user);
