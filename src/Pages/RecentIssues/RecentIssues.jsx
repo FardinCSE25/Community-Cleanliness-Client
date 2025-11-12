@@ -5,7 +5,7 @@ const RecentIssues = ({ issuesList }) => {
 
 
     return (
-        <div className='bg-gray-100'>
+        <div>
         <h1 className='text-4xl py-10 font-bold text-center'>
                 Recent Issues
             </h1>

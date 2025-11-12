@@ -5,7 +5,7 @@ import img from "../assets/volunteers.jpg";
 
 const VolunteerSection = () => {
   return (
-    <div className="bg-gray-100 py-14">
+    <div className="py-14">
       <motion.section
       className="flex flex-col md:flex-row items-center justify-between bg-white rounded-2xl shadow-md hover:shadow-xl 
                  px-8 md:px-12 py-14 max-w-6xl mx-auto font-['Roboto'] overflow-hidden transition-all duration-300"

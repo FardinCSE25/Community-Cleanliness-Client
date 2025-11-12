@@ -62,7 +62,7 @@ const HeroSlider = () => {
   };
 
   return (
-    <div className="relative w-full h-[70vh] overflow-hidden"> 
+    <div className="relative w-full h-[70vh] z-0 overflow-hidden"> 
       <div className="relative w-full h-full">
         {slides.map((slide, index) => (
           <div
@@ -119,7 +119,8 @@ const HeroSlider = () => {
                   <button
                     className="group relative px-8 py-4 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl bg-[#228B22]"
                   >
-                    <Link to={user ? '' : '/login' } className="relative z-10">{slide.buttonText}</Link>
+                    <Link to={user ? '' : '/login' } className="relative z-10
+                    ">{slide.buttonText}</Link>
                     <div className="absolute inset-0 bg-[#228B22] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div className="absolute inset-0 bg-white/10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                   </button>

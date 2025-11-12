@@ -12,18 +12,24 @@ const MyIssues = () => {
     const [amount, setAmount] = useState("")
     const [description, setDescription] = useState("")
     // eslint-disable-next-line no-unused-vars
-    const [issue, setIssue] = useState({})
-    
-    useEffect(() => {
-        if (user?.email) {
-            fetch(`https://community-cleanliness-server-phi.vercel.app/issues?email=${user.email}`)
-                .then(res => res.json())
-                .then(data => {
-                    // console.log(data);
-                    setIssues(data)
+    // const [issue, setIssue] = useState({})
+    const [refetch, setRefetch] = useState(0)
+    console.log(user.accessToken),
+
+        useEffect(() => {
+            if (user?.email) {
+                fetch(`https://community-cleanliness-server-phi.vercel.app/issues?email=${user.email}`, {
+                    headers: {
+                        authorization: `Bearer ${user.accessToken}`
+                    }
                 })
-        }
-    }, [user?.email])
+                    .then(res => res.json())
+                    .then(data => {
+                        // console.log(data);
+                        setIssues(data)
+                    })
+            }
+        }, [user?.email, user.accessToken, refetch])
 
     const handleIssueModal = () => {
         issueModalRef.current.showModal()
@@ -31,49 +37,48 @@ const MyIssues = () => {
     // console.log(issues)
     const handleIssueUpdate = (id) => {
         // console.log(e);
-        
+
         // e.preventDefault();
         const updatedIssueData = {
-        title : title,
-        category : category,
-        amount : Number(amount),
-        description : description
+            title: title,
+            category: category,
+            amount: Number(amount),
+            description: description
         }
         // console.log(id, updatedIssueData);
-    
-        
-          fetch(`https://community-cleanliness-server-phi.vercel.app/issues/${id}`, {
-                    method: "PATCH",
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(updatedIssueData)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        // console.log(data);
-                        // setLoading(false)
-                        if (data.acknowledged) {
-                            Swal.fire({
-                                position: "center",
-                                icon: "success",
-                                title: "Your Issue Updated!",
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                            issueModalRef.current.close();
-                            // const matchedIssue = issues.find(iss => iss._id == id)
-                            
-                            // setIssue({matchedIssue.title = updatedIssueData.title,
-                            //     matchedIssue.category = updatedIssueData.category,
-                            //     matchedIssue.amount = updatedIssueData.amount,
-                            //     matchedIssue.description = updatedIssueData.description}
-                            // )
-                            // console.log(issue);
-                            
-                        }
-        
-                    })
+
+
+        fetch(`https://community-cleanliness-server-phi.vercel.app/issues/${id}`, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedIssueData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                // setLoading(false)
+                if (data.acknowledged) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Your Issue Updated!",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    issueModalRef.current.close();
+                    setRefetch(refetch + 1)
+
+                    // const matchedIssue = issues.find(iss => iss._id == id)
+                    // setIssues({...matchedIssue, ...updatedIssueData})
+
+                    // console.log(matchedIssue);
+                    
+
+                }
+
+            })
     }
     const handleIssueDelete = (id) => {
         Swal.fire({
@@ -108,7 +113,7 @@ const MyIssues = () => {
     }
 
     return (
-        <div className='w-11/12 mx-auto mt-20 min-h-screen'>
+        <div className='w-11/12 mx-auto pt-44 min-h-screen'>
             <title>Community Cleanliness- My Issues</title>
             <h3 className='text-2xl my-6'>My Issues : {issues.length}</h3>
             <div className="overflow-x-auto">
@@ -123,65 +128,65 @@ const MyIssues = () => {
                     </thead>
 
                     <tbody className="text-sm">
-                        {   
+                        {
                             issues ? (
                                 issues.map((iss, index) => (
-                                <tr key={iss._id} className="hover:bg-gray-50 dark:hover:bg-black transition">
-                                    <td className="text-center font-medium">{index + 1}</td>
+                                    <tr key={iss._id} className="hover:bg-gray-50 dark:hover:bg-black transition">
+                                        <td className="text-center font-medium">{index + 1}</td>
 
-                                    <td>
-                                        <div className="flex flex-col justify-center">
-                                            <h1 className="font-semibold dark:text-white text-black">{iss.title}</h1>
-                                        </div>
-                                    </td>
-                                    <td className="text-center">
-                                        <button onClick={handleIssueModal} className="btn btn-sm bg-green-600 hover:bg-green-700 text-white px-4 py-1 rounded-md">
-                                            Update
-                                        </button>
-                                    </td>
-                                    <td className="text-center">
-                                        <button onClick={() => handleIssueDelete( iss._id)} className="btn btn-sm bg-green-600 hover:bg-green-700 text-white px-4 py-1 rounded-md">
-                                            Delete
-                                        </button>
-                                    </td>
-                                    <dialog ref={issueModalRef} className="modal modal-bottom sm:modal-middle">
-                                        <div className="modal-box">
-                                            <h3 className="font-bold text-lg mb-3 text-center">Update your Issue</h3>
-                                            <form >
-                                                <fieldset className="fieldset">
-                                                    <label className="label text-black font-medium">Issue Title</label>
-                                                    <input type="text" onChange={(e)=>setTitle(e.target.value)} defaultValue={iss.title} name='title' className="input w-full"
-                                                    />
-                                                    <label className="label text-black font-medium">Category</label>
-                                                    <select name="category" onChange={(e)=>setCategory(e.target.value)}  defaultValue={iss.category}
-                                                        className="select select-bordered w-full" required>
-                                                        <option value="">Select Category</option>
-                                                        <option value="Garbage">Garbage</option>
-                                                        <option value="Illegal Construction">Illegal Construction</option>
-                                                        <option value="Broken Public Property">Broken Public Property</option>
-                                                        <option value="Road Damage">Road Damage</option>
-                                                    </select>
-                                                    <label className="label text-black font-medium">Amount</label>
-                                                    <input type="text" onChange={(e)=>setAmount(e.target.value)}  name='amount' defaultValue={iss.amount} className="input w-full"
-                                                    />
-                                                    <label className="label text-black font-medium">Description</label>
-                                                    <input type="text" onChange={(e)=>setDescription(e.target.value)}  name='description' defaultValue={iss.description} className="input w-full"
-                                                    />
-                                                    <button type='button' onClick={() => handleIssueUpdate(iss._id)} className="btn bg-[#006400] text-white mt-4">Update</button>
-                                                </fieldset>
-                                            </form>
-
-                                            <div className="modal-action">
-                                                <form method="dialog">
-                                                    <button className="btn bg-[#228B22] text-white">Cancel</button>
-                                                </form>
+                                        <td>
+                                            <div className="flex flex-col justify-center">
+                                                <h1 className="font-semibold dark:text-white text-black">{iss.title}</h1>
                                             </div>
-                                        </div>
-                                    </dialog>
-                                </tr>
-                            ))
+                                        </td>
+                                        <td className="text-center">
+                                            <button onClick={handleIssueModal} className="btn btn-sm bg-green-600 hover:bg-green-700 text-white px-4 py-1 rounded-md">
+                                                Update
+                                            </button>
+                                        </td>
+                                        <td className="text-center">
+                                            <button onClick={() => handleIssueDelete(iss._id)} className="btn btn-sm bg-green-600 hover:bg-green-700 text-white px-4 py-1 rounded-md">
+                                                Delete
+                                            </button>
+                                        </td>
+                                        <dialog ref={issueModalRef} className="modal modal-bottom sm:modal-middle">
+                                            <div className="modal-box">
+                                                <h3 className="font-bold text-lg mb-3 text-center">Update your Issue</h3>
+                                                <form >
+                                                    <fieldset className="fieldset">
+                                                        <label className="label text-black font-medium">Issue Title</label>
+                                                        <input type="text" onChange={(e) => setTitle(e.target.value)} defaultValue={iss.title} name='title' className="input w-full"
+                                                        />
+                                                        <label className="label text-black font-medium">Category</label>
+                                                        <select name="category" onChange={(e) => setCategory(e.target.value)} defaultValue={iss.category}
+                                                            className="select select-bordered w-full" required>
+                                                            <option value="">Select Category</option>
+                                                            <option value="Garbage">Garbage</option>
+                                                            <option value="Illegal Construction">Illegal Construction</option>
+                                                            <option value="Broken Public Property">Broken Public Property</option>
+                                                            <option value="Road Damage">Road Damage</option>
+                                                        </select>
+                                                        <label className="label text-black font-medium">Amount</label>
+                                                        <input type="text" onChange={(e) => setAmount(e.target.value)} name='amount' defaultValue={iss.amount} className="input w-full"
+                                                        />
+                                                        <label className="label text-black font-medium">Description</label>
+                                                        <input type="text" onChange={(e) => setDescription(e.target.value)} name='description' defaultValue={iss.description} className="input w-full"
+                                                        />
+                                                        <button type='button' onClick={() => handleIssueUpdate(iss._id)} className="btn bg-[#006400] text-white mt-4">Update</button>
+                                                    </fieldset>
+                                                </form>
+
+                                                <div className="modal-action">
+                                                    <form method="dialog">
+                                                        <button className="btn bg-[#228B22] text-white">Cancel</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </dialog>
+                                    </tr>
+                                ))
                             ) :
-                            (<Loading/>)
+                                (<Loading />)
                         }
                     </tbody>
                 </table>

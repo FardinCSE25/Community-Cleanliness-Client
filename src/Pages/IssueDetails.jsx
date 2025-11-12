@@ -84,7 +84,7 @@ const IssueDetails = () => {
     return (
         <>
             <title>Community Cleanliness- Issue Details</title>
-            <div className="max-w-5xl mx-auto p-6">
+            <div className="max-w-5xl mx-auto pt-40 pb-24 px-6">
 
                 <div className="mb-6">
                     <h1 className="text-3xl font-bold dark:text-white text-gray-800">{issue.title}</h1>
@@ -175,7 +175,7 @@ const IssueDetails = () => {
             </div>
             <div className='w-11/12 mx-auto'>
                 <h3 className="text-3xl font-semibold my-6">Contributions for this Issue: <span className='text-[#228B22]'>{contribution.length}</span></h3>
-                <div className="overflow-x-auto mb-6 min-h-[200px]">
+                <div className="overflow-x-auto pb-10 min-h-[200px]">
                     <table className="table">
                         <thead>
                             <tr>

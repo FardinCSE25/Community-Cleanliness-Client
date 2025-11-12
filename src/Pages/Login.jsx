@@ -83,7 +83,7 @@ const Login = () => {
                     }
                 `}
             </style>
-            <div className="min-h-screen flex items-center justify-center p-4 font-inter animated-bg">
+            <div className="min-h-screen flex items-center justify-center pt-4 font-inter animated-bg">
                 <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row rounded-3xl shadow-2xl overflow-hidden bg-white">
 
                     <motion.div

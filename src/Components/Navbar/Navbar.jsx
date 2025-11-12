@@ -96,11 +96,11 @@ const Navbar = () => {
     return (
         <>
             <div
-                className={`bg-white shadow-lg bg-opacity-95 pb-4 backdrop-blur-sm w-full flex justify-center top-0 z-50 md:px-7 transition-all duration-300 ease-in-out`}
+                className={`bg-white fixed shadow-lg bg-opacity-95 pb-4 backdrop-blur-sm w-full flex justify-center top-0 z-1000 md:px-7 transition-all duration-300 ease-in-out`}
             >
-                <div className="w-full px-5 pt-2 2xl:max-w-screen-2xl flex items-center justify-between mt-5 md:mt-2">
+                <div className="w-full z-50 px-5 pt-2 2xl:max-w-screen-2xl flex items-center justify-between mt-5 md:mt-2">
                     <div className="md:hidden font-bold text-3xl dropdown">
-                        <button tabIndex={0} className="mr-5 text-[#228B22]">
+                        <button tabIndex={0} className="mr-5 cursor-pointer text-[#228B22]">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-7 w-7"
@@ -119,7 +119,7 @@ const Navbar = () => {
                     
                         <ul
                             tabIndex={0}
-                            className="menu z-50 w-44 p-2 menu-sm dropdown-content font-semibold bg-white border border-blue-200 rounded-lg shadow-lg transition-transform duration-300"
+                            className="menu z-10000  w-44 p-2 menu-sm dropdown-content font-semibold bg-white border border-blue-200 rounded-lg shadow-lg transition-transform duration-300"
                         >
                             {navOptions}
                         </ul>
@@ -143,7 +143,7 @@ const Navbar = () => {
 
                     <div className="flex justify-between items-center gap-7">
                         {user &&
-                            <div className="dropdown dropdown-end z-50">
+                            <div className="dropdown dropdown-end">
                                 <div
                                     tabIndex={0}
                                     role="button"

@@ -8,14 +8,18 @@ const MyContribution = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`https://community-cleanliness-server-phi.vercel.app/contribution?email=${user.email}`)
+            fetch(`https://community-cleanliness-server-phi.vercel.app/contribution?email=${user.email}`, {
+                    headers: {
+                        authorization: `Bearer ${user.accessToken}`
+                    }
+                })
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data);
                     setContribution(data)
                 })
         }
-    }, [user?.email])
+    }, [user])
 
     const handleDownloadPDF =(title, amount, date, category) =>{
         const pdf = new jsPDF()
@@ -45,7 +49,7 @@ const MyContribution = () => {
     }
 
     return (
-        <div className='w-11/12 mx-auto mt-20 min-h-screen'>
+        <div className='w-11/12 mx-auto pt-44 min-h-screen'>
             <title>Community Cleanliness- My Contribution</title>
             <h3 className='text-2xl my-6'>My Contributions : {contribution.length}</h3>
             <div className="overflow-x-auto">
@@ -62,7 +66,7 @@ const MyContribution = () => {
 
                     <tbody className="text-sm">
                         {
-                            contribution.map((con, index) => (
+                            contribution?.map((con, index) => (
                                 <tr key={con._id} className="hover:bg-gray-50 dark:hover:bg-black transition">
                                     <td className="text-center font-medium">{index + 1}</td>
 

@@ -16,9 +16,9 @@ const AllIssues = () => {
     })()
     return (
       
-     <div className='bg-gray-100'>
+     <div>
      <title>Community Cleanliness- All Issues</title>
-       <div className='w-11/12 mx-auto pt-20 flex justify-between items-center'>
+       <div className='w-11/12 mx-auto pt-52 flex justify-between items-center'>
        <div>
          <h1 className='text-5xl mb-10 font-bold text-left'>
                 All Issues

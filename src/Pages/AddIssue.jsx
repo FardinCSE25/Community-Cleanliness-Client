@@ -26,7 +26,7 @@ const AddIssue = () => {
             status: "ongoing",
             amount: Number(amount),
             email: email,
-            date: new Date().toLocaleDateString(),
+            date: new Date().toISOString().split("T")[0],
         }
 
         fetch("https://community-cleanliness-server-phi.vercel.app/issues", {
@@ -58,7 +58,8 @@ const AddIssue = () => {
 
     return (
 
-        <div className="max-w-3xl mx-auto p-8 bg-gray-100 rounded-xl shadow-lg my-10">
+        <div className="py-44">
+            <div className="max-w-3xl mx-auto p-8 bg-base-200 rounded-xl shadow-lg">
             <title>Community Cleanliness- Add Issue</title>
             <h2 className="text-2xl font-bold text-center mb-6">Add a New Issue</h2>
 
@@ -118,6 +119,7 @@ const AddIssue = () => {
                 <button className="btn bg-[#228B22] w-full mt-4 text-white">Submit</button>
 
             </form>
+        </div>
         </div>
     );
 };

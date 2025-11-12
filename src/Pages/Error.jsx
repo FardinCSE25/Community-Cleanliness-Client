@@ -8,7 +8,7 @@ const Error = () => {
     return (
         <>
             <Navbar />
-            <div className='max-w-[750px] w-full mx-auto px-4 pt-20 pb-32 inter text-center'>
+            <div className='max-w-[750px] w-full mx-auto px-4 pt-52 pb-32 inter text-center'>
 
                 <img className='pb-6 mx-auto w-60 md:w-80' src={error} alt="error" />
 
@@ -16,7 +16,7 @@ const Error = () => {
                     Oops, page not found!
                 </h1>
 
-                <p className='text-sm md:text-base mb-6 text-gray-600'>
+                <p className='text-sm md:text-base mb-6 dark:text-white text-gray-600'>
                     The page you are looking for is not available.
                 </p>
 
