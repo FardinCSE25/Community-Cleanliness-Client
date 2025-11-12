@@ -26,7 +26,7 @@ const AllIssues = () => {
        </div>
             <div className='flex flex-col text-lg'>
               <label className='ml-3'>Filter by</label>
-              <select className='border-2 border-black rounded-md p-1' value={filter} onChange={e => setFilter(e.target.value)}>
+              <select className='border-2 dark:border-gray-200 dark:bg-black border-black rounded-md p-1' value={filter} onChange={e => setFilter(e.target.value)}>
                         <option value="All">All</option>
                         <option value="Garbage">Garbage</option>
                         <option value="Illegal Construction">Illegal Construction</option>

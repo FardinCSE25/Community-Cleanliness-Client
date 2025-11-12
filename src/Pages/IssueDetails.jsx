@@ -83,10 +83,9 @@ const IssueDetails = () => {
     if (!issue) return <Loading />
     return (
         <>
-        <title>Community Cleanliness- Issue Details</title>
+            <title>Community Cleanliness- Issue Details</title>
             <div className="max-w-5xl mx-auto p-6">
 
-                {/* Title Section */}
                 <div className="mb-6">
                     <h1 className="text-3xl font-bold dark:text-white text-gray-800">{issue.title}</h1>
 
@@ -107,7 +106,6 @@ const IssueDetails = () => {
                     </div>
                 </div>
 
-                {/* Image */}
                 <div className="w-full h-80 bg-gray-200 rounded-xl overflow-hidden shadow-md">
                     <img
                         src={issue.image}
@@ -116,12 +114,10 @@ const IssueDetails = () => {
                     />
                 </div>
 
-                {/* Description */}
                 <p className="mt-6 dark:text-white text-gray-700 leading-relaxed text-lg">
                     {issue.description}
                 </p>
 
-                {/* Budget */}
                 <div className="mt-6 p-4 bg-gray-50 border rounded-xl flex items-center justify-between">
                     <div className="flex items-center gap-2 text-gray-700">
                         <Wallet size={20} />
@@ -130,7 +126,6 @@ const IssueDetails = () => {
                     <span className="text-green-600 font-bold text-xl">৳ {issue.amount}</span>
                 </div>
 
-                {/* Button */}
                 <button onClick={handleContributionModal} className="mt-6 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition">
                     Pay Clean-Up Contribution
                 </button>
@@ -158,7 +153,6 @@ const IssueDetails = () => {
                                 <label className="label dark:text-white text-black font-medium">Contributor Name</label>
                                 <input type="text" name='name' className="input w-full"
                                 />
-                                {/* email */}
                                 <label className="label dark:text-white text-black font-medium">Email</label>
                                 <input type="email" className="input w-full" name='email' readOnly defaultValue={user?.email} />
                                 <label className="label dark:text-white text-black font-medium">Phone Number</label>
@@ -173,7 +167,6 @@ const IssueDetails = () => {
 
                         <div className="modal-action">
                             <form method="dialog">
-                                {/* if there is a button in form, it will close the modal */}
                                 <button className="btn bg-[#228B22] text-white">Cancel</button>
                             </form>
                         </div>
@@ -184,7 +177,6 @@ const IssueDetails = () => {
                 <h3 className="text-3xl font-semibold my-6">Contributions for this Issue: <span className='text-[#228B22]'>{contribution.length}</span></h3>
                 <div className="overflow-x-auto mb-6 min-h-[200px]">
                     <table className="table">
-                        {/* head */}
                         <thead>
                             <tr>
                                 <th>
@@ -196,7 +188,6 @@ const IssueDetails = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* row 1 */}
                             {
                                 contribution.map((con, index) =>
                                     <tr>
@@ -218,7 +209,6 @@ const IssueDetails = () => {
                                         <td>{con.amount}</td>
                                     </tr>)
                             }
-                            {/* row 2 */}
 
                         </tbody>
 

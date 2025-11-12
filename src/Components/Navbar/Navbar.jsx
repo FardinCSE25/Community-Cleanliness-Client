@@ -24,7 +24,6 @@ const Navbar = () => {
         setTheme(checked ? "dark" : "light")
     }
 
-    // Scroll event to toggle "scroll to top" button
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 300) setShowTopBtn(true);
@@ -39,14 +38,6 @@ const Navbar = () => {
             .then(() => toast.error("Logout Successful"))
             .catch((error) => toast.error(error.message));
     };
-
-    // Smooth scroll helper
-    // const scrollToSection = (id) => {
-    //     const section = document.getElementById(id);
-    //     if (section) {
-    //         section.scrollIntoView({ behavior: "smooth" });
-    //     }
-    // };
 
     const navOptions = (
         <>
@@ -108,7 +99,6 @@ const Navbar = () => {
                 className={`bg-white mb-32 shadow-lg bg-opacity-95 pb-4 backdrop-blur-sm w-full flex justify-center top-0 z-50 md:px-7 transition-all duration-300 ease-in-out`}
             >
                 <div className="w-full px-5 pt-2 2xl:max-w-screen-2xl flex items-center justify-between mt-5 md:mt-2">
-                    {/* Mobile Dropdown */}
                     <div className="md:hidden font-bold text-3xl dropdown">
                         <button tabIndex={0} className="mr-5 text-[#228B22]">
                             <svg
@@ -134,7 +124,6 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    {/* Logo */}
                     <div>
                         <Link to="/">
                             <img
@@ -145,23 +134,21 @@ const Navbar = () => {
                         </Link>
                     </div>
 
-                    {/* Desktop Nav */}
                     <div className="navi">
                         <ul className="hidden md:flex text-lg font-semibold menu-horizontal px-1 space-x-6">
                             {navOptions}
                         </ul>
                     </div>
 
-                    {/* User Info */}
                     <div className="flex justify-between items-center gap-7">
                         {user &&
                             <div className="dropdown dropdown-end z-50">
                                 <div
                                     tabIndex={0}
                                     role="button"
-                                    className="btn btn-ghost btn-circle avatar"
+                                    className="btn w-12 btn-ghost btn-circle avatar"
                                 >
-                                    <div className="w-9 border-2 border-[#228B22] rounded-full">
+                                    <div className="border-2 border-[#228B22] rounded-full">
                                         <img
                                             alt="Tailwind CSS Navbar component"
                                             referrerPolicy="no-referrer"
@@ -212,7 +199,6 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/* Scroll To Top Button */}
             {showTopBtn && (
                 <button
                     onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -221,7 +207,6 @@ const Navbar = () => {
                 >
                     <ArrowUp className="w-6 h-6 mx-auto group-hover:-translate-y-0.5 transition-transform duration-300" />
 
-                    {/* Glow effect */}
                     <div className="absolute inset-0 rounded-full bg-blue-400/20 blur-md group-hover:bg-blue-400/30 transition-all duration-500 -z-10"></div>
                 </button>
             )}

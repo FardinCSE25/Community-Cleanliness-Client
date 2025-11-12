@@ -64,14 +64,12 @@ const AddIssue = () => {
 
             <form onSubmit={handleSubmit} className="space-y-4">
 
-                {/* Title */}
                 <div>
                     <label className="label"><span className="label-text">Issue Title</span></label>
                     <input type="text" name="title"
                         className="input input-bordered w-full" required />
                 </div>
 
-                {/* Category */}
                 <div>
                     <label className="label"><span className="label-text">Category</span></label>
                     <select name="category"
@@ -84,46 +82,39 @@ const AddIssue = () => {
                     </select>
                 </div>
 
-                {/* Location */}
                 <div>
                     <label className="label"><span className="label-text">Location</span></label>
                     <input type="text" name="location"
                         className="input input-bordered w-full" required />
                 </div>
 
-                {/* Description */}
                 <div>
                     <label className="label"><span className="label-text">Description</span></label>
                     <textarea name="description"
                         className="textarea textarea-bordered w-full" required />
                 </div>
 
-                {/* Image */}
                 <div>
                     <label className="label"><span className="label-text">Image</span></label>
                     <input type="text" name="image"
                         className="input input-bordered w-full" required />
                 </div>
 
-                {/* Amount */}
                 <div>
                     <label className="label"><span className="label-text">Amount</span></label>
                     <input type="number" name="amount"
                         className="input input-bordered w-full" required />
                 </div>
 
-                {/* Email (Read-only) */}
                 <div>
                     <label className="label"><span className="label-text">Email</span></label>
                     <input type="text" name="email" readOnly defaultValue={user?.email}
                         className="input input-bordered w-full light:bg-gray-100" />
                 </div>
 
-                {/* Hidden Fields */}
                 <input type="hidden" name="status" />
                 <input type="hidden" name="date" />
 
-                {/* Submit */}
                 <button className="btn bg-[#228B22] w-full mt-4 text-white">Submit</button>
 
             </form>

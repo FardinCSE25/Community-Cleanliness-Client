@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState("")
-    const { login, googleSignIn, setUser} = use(AuthContext)
+    const { login, googleSignIn, setUser } = use(AuthContext)
     const location = useLocation();
     // console.log(location.state);
 
@@ -21,7 +21,7 @@ const Login = () => {
             .then(userData => {
                 const user = userData.user
                 console.log(user);
-                
+
                 toast.success("Login Successful")
                 navigate(`${location.state ? location.state : "/"}`)
             })
@@ -39,7 +39,7 @@ const Login = () => {
             .then((userData) => {
                 const user = userData.user;
                 console.log(user)
-                
+
                 setUser(user)
                 toast.success("Login Successful")
                 // console.log(user);
@@ -68,7 +68,7 @@ const Login = () => {
     };
     return (
         <>
-        <title>Community Cleanliness- Login</title>
+            <title>Community Cleanliness- Login</title>
             <style>
                 {`
                     @keyframes pulse-bg {
@@ -86,7 +86,6 @@ const Login = () => {
             <div className="min-h-screen flex items-center justify-center p-4 font-inter animated-bg">
                 <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row rounded-3xl shadow-2xl overflow-hidden bg-white">
 
-                    {/* Left Side: Animated Login Form */}
                     <motion.div
                         className="w-full lg:w-1/2 p-10 md:p-16 flex flex-col justify-center bg-white"
                         variants={formVariants}
@@ -98,7 +97,7 @@ const Login = () => {
                         </h1>
 
                         <form onSubmit={handleLogin} className="space-y-6">
-                            {/* Email Input */}
+
                             <div>
                                 <label className="text-lg font-medium text-gray-700 flex items-center mb-1">
                                     <Mail className="w-5 h-5 mr-2 text-cyan-500" /> Email
@@ -112,7 +111,7 @@ const Login = () => {
                                 />
                             </div>
 
-                            {/* Password Input with Toggle */}
+
                             <div>
                                 <label className="text-lg font-medium text-gray-700 flex items-center mb-1">
                                     <Lock className="w-5 h-5 mr-2 text-green-500" /> Password
@@ -136,7 +135,7 @@ const Login = () => {
                                 </div>
                             </div>
 
-                            {/* Forgot Password Link */}
+
                             {error && <p className='text-red-500 text-xs text-left'> {error} </p>}
                             <div className='text-right'>
                                 <Link to="/resetPass" type='button' className="text-sm font-medium text-[#228B22] hover:text-[#006400] hover:underline transition">
@@ -144,16 +143,16 @@ const Login = () => {
                                 </Link>
                             </div>
 
-                            {/* Google */}
+
                             <button
-                            type="button"
+                                type="button"
                                 onClick={handleGoogleSignIn}
                                 className="group relative flex items-center justify-center w-full px-6 py-3.5 bg-white text-gray-700 font-medium rounded-xl border border-gray-300 hover:border-gray-400 shadow-sm hover:shadow-lg transition-all duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-4 focus:ring-green-100 focus:ring-opacity-50"
                             >
 
                                 <div className="absolute inset-0 rounded-xl bg-linear-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -translate-x-full group-hover:translate-x-full" />
 
-                                {/* Google logo container */}
+
                                 <div className="relative flex items-center justify-center w-6 h-6 mr-3">
                                     <svg
                                         aria-label="Google logo"
@@ -169,7 +168,7 @@ const Login = () => {
                                     </svg>
                                 </div>
 
-                                {/* Button text */}
+
                                 <span className="relative font-semibold text-[15px] tracking-wide transition-all duration-300 group-hover:tracking-wider">
                                     Continue with Google
                                 </span>
@@ -177,7 +176,7 @@ const Login = () => {
 
 
 
-                            {/* Login Button */}
+
                             <motion.button
                                 type="submit"
                                 whileHover={{ scale: 1.02 }}
@@ -191,7 +190,7 @@ const Login = () => {
                             </motion.button>
                         </form>
 
-                        {/* Sign Up Link */}
+
                         <p className='text-center text-base mt-6 text-gray-600'>
                             Don't have an account?
                             <Link to="/register" className='text-[#228B22] font-semibold ml-1 hover:underline'>
@@ -200,7 +199,6 @@ const Login = () => {
                         </p>
                     </motion.div>
 
-                    {/* Right Side: Animated Visual Element (Matching Style) */}
                     <motion.div
                         className="lg:block w-full lg:w-1/2 p-16 bg-[#228B22] flex items-center justify-center relative"
                         variants={imageVariants}
@@ -211,7 +209,6 @@ const Login = () => {
 
                         <div className="relative text-white z-10 text-center">
                             <svg className="w-64 h-64 mx-auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                {/* Simple SkillSwap Graphic for illustration */}
                                 <motion.circle
                                     cx="12" cy="12" r="10" stroke="white" strokeWidth="2"
                                     initial={{ scale: 0 }}
@@ -228,24 +225,28 @@ const Login = () => {
                                     transition={{ duration: 1.5, delay: 0.5 }}
                                 />
                             </svg>
+
                             <motion.h2
                                 className="mt-6 text-4xl font-extrabold"
                                 initial={{ y: 20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ duration: 0.8, delay: 1.8 }}
                             >
-                                Access Your Courses
+                                Report & Track Local Issues
                             </motion.h2>
+
                             <motion.p
                                 className="mt-2 text-lg font-light"
                                 initial={{ y: 20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ duration: 0.8, delay: 2.0 }}
                             >
-                                Log in to continue your skill-swapping journey.
+                                Log in to raise community concerns, report cleanliness problems,
+                                and help make your neighborhood a cleaner, safer place.
                             </motion.p>
                         </div>
                     </motion.div>
+
                 </div>
             </div >
         </>

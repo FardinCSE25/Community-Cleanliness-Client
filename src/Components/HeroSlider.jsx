@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 // Assuming you have images imported correctly
 import img1 from "../assets/image1.avif";
 import img2 from "../assets/image2.jpg";
 import img3 from "../assets/image3.jpg";
 import { Link } from "react-router";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const slides = [
   {
@@ -32,6 +33,7 @@ const slides = [
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const {user} = use(AuthContext)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -61,7 +63,6 @@ const HeroSlider = () => {
 
   return (
     <div className="relative w-full h-[70vh] overflow-hidden"> 
-      {/* Background Slides with Parallax */}
       <div className="relative w-full h-full">
         {slides.map((slide, index) => (
           <div
@@ -78,10 +79,8 @@ const HeroSlider = () => {
             }}
             onTransitionEnd={handleTransitionEnd}
           >
-            {/* Enhanced Overlay with Gradient - Updated for left alignment */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
             
-            {/* Subtle Pattern Overlay */}
             <div 
               className="absolute inset-0 opacity-10"
               style={{
@@ -93,7 +92,6 @@ const HeroSlider = () => {
         ))}
       </div>
 
-      {/* Content - Updated for left center alignment */}
       <div className="absolute -top-40 left-0 right-0 bottom-0 z-20 h-full flex items-center"> 
         <div className="container mx-auto px-6 md:px-12 lg:px-20 w-full"> 
           <div className="max-w-2xl"> 
@@ -120,9 +118,8 @@ const HeroSlider = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-start">
                   <button
                     className="group relative px-8 py-4 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl bg-[#228B22]"
-                    // style={{ backgroundColor: "var(--color-[#228B22])" }}
                   >
-                    <Link to="/login" className="relative z-10">{slide.buttonText}</Link>
+                    <Link to={user ? '' : '/login' } className="relative z-10">{slide.buttonText}</Link>
                     <div className="absolute inset-0 bg-[#228B22] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div className="absolute inset-0 bg-white/10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                   </button>
@@ -137,7 +134,6 @@ const HeroSlider = () => {
         </div>
       </div>
 
-      {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
         className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/30 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/50 hover:scale-110 transition-all duration-300 group"
@@ -156,7 +152,6 @@ const HeroSlider = () => {
         </svg>
       </button>
 
-      {/* Slide Indicators */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex space-x-3">
         {slides.map((_, index) => (
           <button
@@ -171,7 +166,6 @@ const HeroSlider = () => {
         ))}
       </div>
 
-      {/* Progress Bar */}
       <div className="absolute top-0 left-0 w-full h-1 z-40 bg-gray-600/30">
         <div
           className="h-full bg-[#228B22] transition-width duration-5000 ease-linear"
@@ -179,7 +173,6 @@ const HeroSlider = () => {
         ></div>
       </div>
 
-      {/* Scroll Indicator - Removed since content is now at left center */}
     </div>
   );
 };

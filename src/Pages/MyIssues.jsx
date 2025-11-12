@@ -30,7 +30,7 @@ const MyIssues = () => {
     const handleIssueUpdate = (e, id) => {
         console.log(id);
         
-        // e.preventDefault();
+        e.preventDefault();
         const updatedIssueData = {
         title : title,
         category : category,
@@ -51,19 +51,17 @@ const MyIssues = () => {
                     .then(data => {
                         console.log(data);
                         
-                        // if (data.insertedId) {
-                        //     // Swal.fire({
-                        //     //     position: "center",
-                        //     //     icon: "success",
-                        //     //     title: "New Issue Added!",
-                        //     //     showConfirmButton: false,
-                        //     //     timer: 1500
-                        //     // });
-                        //     // e.target.reset()
-                        //     // newIssue._id = data.insertedId;
-                        //     // const newIss = [...issues, newIssue];
-                        //     // setIssues(newIss);
-                        // }
+                        if (data.acknowledged) {
+                            Swal.fire({
+                                position: "center",
+                                icon: "success",
+                                title: "Your Issue Updated!",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            issueModalRef.current.close();
+                            e.target.reset()
+                        }
         
                     })
     }
@@ -165,7 +163,6 @@ const MyIssues = () => {
 
                                             <div className="modal-action">
                                                 <form method="dialog">
-                                                    {/* if there is a button in form, it will close the modal */}
                                                     <button className="btn bg-[#228B22] text-white">Cancel</button>
                                                 </form>
                                             </div>
