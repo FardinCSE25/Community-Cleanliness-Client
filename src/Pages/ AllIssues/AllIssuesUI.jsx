@@ -21,20 +21,20 @@ const AllIssuesUI = ({ issue }) => {
 
       <div className="p-5 flex flex-col h-full">
         <div>
-          <h2 className="text-xl font-bold mt-1 text-gray-900 hover:text-green-800 transition-colors duration-200">
-            {issue.title}
+          <h2 className="text-xl h-7 font-bold mt-1 text-gray-900 hover:text-green-800 transition-colors duration-200">
+            {issue.title || "No title available."}
           </h2>
 
-          <div className="flex items-center gap-2 text-gray-500 text-sm mt-2">
+          <div className="flex h-5 items-center gap-2 text-gray-500 text-sm mt-2">
             <MapPin size={18} className="text-green-700" />
             <span>{issue.location}</span>
           </div>
 
-          <p className="text-sm text-gray-700 mt-3 line-clamp-3 leading-relaxed">
+          <p className="text-sm h-[23px] text-gray-700 mt-3 line-clamp-3 leading-relaxed">
             {issue.description?.slice(0, 100) || "No description available."}
           </p>
 
-          <p className="text-sm font-semibold text-gray-800 mt-3">
+          <p className="text-sm h-5 font-semibold text-gray-800 mt-3">
             Estimated Cost:{" "}
             <span className="text-green-600 font-bold">৳ {issue.amount}</span>
           </p>

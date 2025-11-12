@@ -10,15 +10,15 @@ const RecentIssuesUI = ({ issue }) => {
         {issue.category}
       </span>
 
-      <h2 className="text-xl font-bold mt-4 text-gray-900 hover:text-green-800 transition-colors duration-200">
-        {issue.title}
+      <h2 className="text-xl h-7 font-bold mt-4 text-gray-900 hover:text-green-800 transition-colors duration-200">
+        {issue.title || "No title available."}
       </h2>
 
-      <p className="text-gray-600 text-sm mt-2 line-clamp-3">
-        {issue.description}
+      <p className="text-gray-600 h-5 text-sm mt-2 line-clamp-3">
+        {issue.description?.slice(0, 100) || "No description available."}
       </p>
 
-      <div className="flex items-center gap-2 text-gray-500 text-sm mt-4">
+      <div className="flex h-5 items-center gap-2 text-gray-500 text-sm mt-4">
         <MapPin size={18} className="text-green-700" />
         <span>{issue.location}</span>
       </div>
