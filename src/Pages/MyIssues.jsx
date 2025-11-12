@@ -108,7 +108,7 @@ const MyIssues = () => {
     }
 
     return (
-        <div className='w-11/12 mx-auto min-h-screen'>
+        <div className='w-11/12 mx-auto mt-20 min-h-screen'>
             <title>Community Cleanliness- My Issues</title>
             <h3 className='text-2xl my-6'>My Issues : {issues.length}</h3>
             <div className="overflow-x-auto">

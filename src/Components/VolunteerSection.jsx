@@ -5,9 +5,10 @@ import img from "../assets/volunteers.jpg";
 
 const VolunteerSection = () => {
   return (
-    <motion.section
+    <div className="bg-gray-100 py-14">
+      <motion.section
       className="flex flex-col md:flex-row items-center justify-between bg-white rounded-2xl shadow-md hover:shadow-xl 
-                 p-8 md:p-12 my-14 max-w-6xl mx-auto font-['Roboto'] overflow-hidden transition-all duration-300"
+                 px-8 md:px-12 py-14 max-w-6xl mx-auto font-['Roboto'] overflow-hidden transition-all duration-300"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -43,6 +44,7 @@ const VolunteerSection = () => {
         />
       </motion.div>
     </motion.section>
+    </div>
   );
 };
 

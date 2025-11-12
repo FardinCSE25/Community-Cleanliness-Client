@@ -21,7 +21,8 @@ const CategoriesSection = () => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto px-4 pt-16 pb-10">
+   <div className="bg-gray-100">
+     <div className="max-w-6xl mx-auto px-4 pt-16 pb-10">
       <h2 className="text-3xl font-semibold mb-10 text-center dark:text-gray-200 text-black">
         Categories
       </h2>
@@ -45,6 +46,7 @@ const CategoriesSection = () => {
         ))}
       </div>
     </div>
+   </div>
   );
 };
 

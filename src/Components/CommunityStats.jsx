@@ -1,6 +1,7 @@
 const CommunityStats = () => {
   return (
-    <div className="max-w-6xl mx-auto px-4 pt-16 pb-10">
+    <div className="bg-gray-100">
+      <div className="max-w-6xl mx-auto px-4 pt-16 pb-10">
       <h2 className="text-2xl md:text-3xl font-bold dark:text-gray-200 text-black mb-10 text-center">
         Community Stats
       </h2>
@@ -27,6 +28,7 @@ const CommunityStats = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

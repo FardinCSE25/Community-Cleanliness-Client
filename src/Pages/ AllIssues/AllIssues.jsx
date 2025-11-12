@@ -16,9 +16,9 @@ const AllIssues = () => {
     })()
     return (
       
-     <>
+     <div className='bg-gray-100'>
      <title>Community Cleanliness- All Issues</title>
-       <div className='w-11/12 mx-auto flex justify-between items-center'>
+       <div className='w-11/12 mx-auto pt-20 flex justify-between items-center'>
        <div>
          <h1 className='text-5xl mb-10 font-bold text-left'>
                 All Issues
@@ -36,7 +36,7 @@ const AllIssues = () => {
             </div>
        </div>
      
-    <div className="w-11/12 mx-auto my-6 grid md:grid-cols-3 gap-6">
+    <div className="w-11/12 mx-auto py-6 grid md:grid-cols-3 gap-6">
       {filteredIssues?.map(issue => (
         <AllIssuesUI 
           key={issue._id} 
@@ -44,7 +44,7 @@ const AllIssues = () => {
         />
       ))}
     </div>
-    </>
+    </div>
   );
 };
 
