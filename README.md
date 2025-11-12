@@ -1,16 +1,61 @@
-# React + Vite
+# 🧹 Community Cleanliness & Issue Reporting Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🌍 Live Site URL
+👉 [https://your-live-site-url.netlify.app](https://your-live-site-url.netlify.app)
+*(Replace with your actual live site link)*
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧠 Project Overview
+This is a **full-stack MERN application** that empowers communities to report and manage local environmental issues easily.
+Users can submit complaints, pay for cleanup requests, and track progress — promoting cleaner, greener neighborhoods 🌿
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Features
+- 🗑 **Report Local Issues:** Users can report problems like garbage buildup, broken roads, or illegal dumping.  
+- 📷 **Image Upload:** Attach photos to make reports more detailed and verifiable.  
+- 📅 **Track Progress:** View your issue status updates and report history in one dashboard.  
+- 💳 **Payment Option:** Pay small fees for cleanup drives or community maintenance services.  
+- 👥 **Volunteer Section:** Join or organize local cleanup campaigns for community betterment.  
+- 🔒 **Authentication System:** Secure login and registration for personalized access.  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧰 Technologies Used
+**Frontend:** React.js, Tailwind CSS, Framer Motion, React Router  
+**Backend:** Node.js, Express.js  
+**Database:** MongoDB  
+**Other Tools:** JWT Authentication, Fetch API, jsPDF, SweetAlert2  
+
+---
+
+## ⚙️ How to Run Locally
+1. Clone this repository  
+   ```bash
+   git clone https://github.com/yourusername/community-cleanliness-portal.git
+   ```  
+2. Go to the project directory  
+   ```bash
+   cd community-cleanliness-portal
+   ```  
+3. Install dependencies for both client and server  
+   ```bash
+   cd client && npm install  
+   cd ../server && npm install  
+   ```  
+4. Run the backend  
+   ```bash
+   npm run dev
+   ```  
+5. Run the frontend  
+   ```bash
+   cd client  
+   npm start
+   ```  
+
+---
+
+## 👨‍💻 Developer
+**Developed by:** Fardin Ahmed  
+**Role:** Full Stack MERN Developer  
