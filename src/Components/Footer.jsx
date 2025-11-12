@@ -69,8 +69,8 @@ const Footer = () => {
                         </p>
                         <div className="flex items-center space-x-2 text-gray-600">
                             <Mail className="w-4 h-4 text-[#228B22] hover:text-green-800" />
-                            <a href="mailto:support@ccirp.com" className="hover:text-[#228B22] transition">
-                                support@ccirp.com
+                            <a href="mailto:fardinahmed3200@gmail.com" className="hover:text-[#228B22] transition">
+                                fardinahmed3200@gmail.com
                             </a>
                         </div>
                     </motion.div>
