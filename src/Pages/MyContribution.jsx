@@ -8,10 +8,10 @@ const MyContribution = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://community-cleanliness-server-phi.vercel.app/contribution?email=${user.email}`)
+            fetch(`https://community-cleanliness-server-phi.vercel.app/contribution?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     setContribution(data)
                 })
         }

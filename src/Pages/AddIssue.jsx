@@ -15,7 +15,7 @@ const AddIssue = () => {
         const amount = e.target.amount.value;
         const email = e.target.email.value;
         const description = e.target.description.value;
-        console.log(title, category, location, image, name, email, amount, description);
+        // console.log(title, category, location, image, name, email, amount, description);
 
         const newIssue = {
             title: title,
@@ -29,7 +29,7 @@ const AddIssue = () => {
             date: new Date().toLocaleDateString(),
         }
 
-        fetch("http://community-cleanliness-server-phi.vercel.app/issues", {
+        fetch("https://community-cleanliness-server-phi.vercel.app/issues", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

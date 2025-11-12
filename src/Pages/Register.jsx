@@ -71,7 +71,7 @@ const Register = () => {
         createUser(email, password)
             .then(userData => {
                 const user = userData.user
-                console.log(user);
+                // console.log(user);
 
                 updateUser({
                     displayName: name,

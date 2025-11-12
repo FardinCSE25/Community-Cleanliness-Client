@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import Loading from '../Components/Loading';
 
 const MyIssues = () => {
-    const { user, setLoading } = use(AuthContext)
+    const { user } = use(AuthContext)
     const [issues, setIssues] = useState([])
     const issueModalRef = useRef(null);
     const [title, setTitle] = useState("")
@@ -16,7 +16,7 @@ const MyIssues = () => {
     
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://community-cleanliness-server-phi.vercel.app/issues?email=${user.email}`)
+            fetch(`https://community-cleanliness-server-phi.vercel.app/issues?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data);
@@ -42,8 +42,8 @@ const MyIssues = () => {
         // console.log(id, updatedIssueData);
     
         
-          fetch(`http://community-cleanliness-server-phi.vercel.app/issues/${id}`, {
-                    method: "PUT",
+          fetch(`https://community-cleanliness-server-phi.vercel.app/issues/${id}`, {
+                    method: "PATCH",
                     headers: {
                         'content-type': 'application/json'
                     },
@@ -51,8 +51,8 @@ const MyIssues = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
-                        setLoading(false)
+                        // console.log(data);
+                        // setLoading(false)
                         if (data.acknowledged) {
                             Swal.fire({
                                 position: "center",
@@ -62,13 +62,14 @@ const MyIssues = () => {
                                 timer: 1500
                             });
                             issueModalRef.current.close();
-                            const matchedIssue = issues.find(iss => iss._id == id)
+                            // const matchedIssue = issues.find(iss => iss._id == id)
                             
-                            setIssue(matchedIssue.title = updatedIssueData.title,
-                                matchedIssue.category = updatedIssueData.category,
-                                matchedIssue.amount = updatedIssueData.amount,
-                                matchedIssue.description = updatedIssueData.description
-                            )
+                            // setIssue({matchedIssue.title = updatedIssueData.title,
+                            //     matchedIssue.category = updatedIssueData.category,
+                            //     matchedIssue.amount = updatedIssueData.amount,
+                            //     matchedIssue.description = updatedIssueData.description}
+                            // )
+                            // console.log(issue);
                             
                         }
         
@@ -86,7 +87,7 @@ const MyIssues = () => {
         })
             .then(res => {
                 if (res.isConfirmed) {
-                    fetch(`http://community-cleanliness-server-phi.vercel.app/issues/${id}`, {
+                    fetch(`https://community-cleanliness-server-phi.vercel.app/issues/${id}`, {
                         method: "DELETE"
                     })
                         .then(res => res.json()

@@ -22,7 +22,7 @@ const router = createBrowserRouter([
             {
                 index: true,
                 Component: Home,
-                loader: () => fetch("http://community-cleanliness-server-phi.vercel.app/recent-issues"),
+                loader: () => fetch("https://community-cleanliness-server-phi.vercel.app/recent-issues"),
                 hydrateFallbackElement: <Loading/>
             },
             {
@@ -36,13 +36,13 @@ const router = createBrowserRouter([
             {
                 path: "/allIssues",
                 Component: AllIssues,
-                loader: () => fetch("http://community-cleanliness-server-phi.vercel.app/issues"),
+                loader: () => fetch("https://community-cleanliness-server-phi.vercel.app/issues"),
                 hydrateFallbackElement: <Loading/>
             },
             {
                 path: "/issueDetails/:id",
                 element: <PrivateRoute><IssueDetails/></PrivateRoute>,
-                loader: () => fetch("http://community-cleanliness-server-phi.vercel.app/issues"),
+                loader: () => fetch("https://community-cleanliness-server-phi.vercel.app/issues"),
                 hydrateFallbackElement: <Loading/>
             },
             {

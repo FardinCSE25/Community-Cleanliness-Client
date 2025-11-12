@@ -16,7 +16,7 @@ const IssueDetails = () => {
     const issue = issues.find(iss => iss._id == id)
 
     useEffect(() => {
-        fetch(`http://community-cleanliness-server-phi.vercel.app/issues/contribution/${issue._id}`)
+        fetch(`https://community-cleanliness-server-phi.vercel.app/issues/contribution/${issue._id}`)
             .then(res => res.json())
             .then(data => {
                 console.log('bids for this product', data)
@@ -27,7 +27,7 @@ const IssueDetails = () => {
     const handleContributionModal = () => {
         contributionModalRef.current.showModal()
     }
-    console.log(user.photoURL)
+    // console.log(user.photoURL)
 
     const handleContributionSubmit = (e) => {
         e.preventDefault();
@@ -53,7 +53,7 @@ const IssueDetails = () => {
             date: new Date().toLocaleDateString(),
         }
 
-        fetch("http://community-cleanliness-server-phi.vercel.app/contribution", {
+        fetch("https://community-cleanliness-server-phi.vercel.app/contribution", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

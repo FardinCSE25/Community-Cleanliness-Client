@@ -38,7 +38,7 @@ const Login = () => {
         login(email, password)
             .then((userData) => {
                 const user = userData.user;
-                console.log(user)
+                // console.log(user)
 
                 setUser(user)
                 toast.success("Login Successful")
