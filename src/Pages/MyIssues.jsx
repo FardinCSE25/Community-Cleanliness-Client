@@ -4,17 +4,19 @@ import Swal from 'sweetalert2';
 import Loading from '../Components/Loading';
 
 const MyIssues = () => {
-    const { user } = use(AuthContext)
+    const { user, setLoading } = use(AuthContext)
     const [issues, setIssues] = useState([])
     const issueModalRef = useRef(null);
     const [title, setTitle] = useState("")
     const [category, setCategory] = useState("")
     const [amount, setAmount] = useState("")
     const [description, setDescription] = useState("")
+    // eslint-disable-next-line no-unused-vars
+    const [issue, setIssue] = useState({})
     
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/issues?email=${user.email}`)
+            fetch(`http://community-cleanliness-server-phi.vercel.app/issues?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data);
@@ -26,21 +28,21 @@ const MyIssues = () => {
     const handleIssueModal = () => {
         issueModalRef.current.showModal()
     }
-
-    const handleIssueUpdate = (e, id) => {
-        console.log(id);
+    // console.log(issues)
+    const handleIssueUpdate = (id) => {
+        // console.log(e);
         
-        e.preventDefault();
+        // e.preventDefault();
         const updatedIssueData = {
         title : title,
         category : category,
         amount : Number(amount),
         description : description
         }
-        console.log(id, updatedIssueData);
+        // console.log(id, updatedIssueData);
     
         
-          fetch(`http://localhost:5000/issues/${id}`, {
+          fetch(`http://community-cleanliness-server-phi.vercel.app/issues/${id}`, {
                     method: "PUT",
                     headers: {
                         'content-type': 'application/json'
@@ -50,7 +52,7 @@ const MyIssues = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
-                        
+                        setLoading(false)
                         if (data.acknowledged) {
                             Swal.fire({
                                 position: "center",
@@ -60,7 +62,14 @@ const MyIssues = () => {
                                 timer: 1500
                             });
                             issueModalRef.current.close();
-                            e.target.reset()
+                            const matchedIssue = issues.find(iss => iss._id == id)
+                            
+                            setIssue(matchedIssue.title = updatedIssueData.title,
+                                matchedIssue.category = updatedIssueData.category,
+                                matchedIssue.amount = updatedIssueData.amount,
+                                matchedIssue.description = updatedIssueData.description
+                            )
+                            
                         }
         
                     })
@@ -77,7 +86,7 @@ const MyIssues = () => {
         })
             .then(res => {
                 if (res.isConfirmed) {
-                    fetch(`http://localhost:5000/issues/${id}`, {
+                    fetch(`http://community-cleanliness-server-phi.vercel.app/issues/${id}`, {
                         method: "DELETE"
                     })
                         .then(res => res.json()
@@ -113,7 +122,7 @@ const MyIssues = () => {
                     </thead>
 
                     <tbody className="text-sm">
-                        {
+                        {   
                             issues ? (
                                 issues.map((iss, index) => (
                                 <tr key={iss._id} className="hover:bg-gray-50 dark:hover:bg-black transition">
@@ -157,7 +166,7 @@ const MyIssues = () => {
                                                     <label className="label text-black font-medium">Description</label>
                                                     <input type="text" onChange={(e)=>setDescription(e.target.value)}  name='description' defaultValue={iss.description} className="input w-full"
                                                     />
-                                                    <button onClick={() => handleIssueUpdate(iss._id)} className="btn bg-[#006400] text-white mt-4">Update</button>
+                                                    <button type='button' onClick={() => handleIssueUpdate(iss._id)} className="btn bg-[#006400] text-white mt-4">Update</button>
                                                 </fieldset>
                                             </form>
 
@@ -170,7 +179,8 @@ const MyIssues = () => {
                                     </dialog>
                                 </tr>
                             ))
-                            ) : (<Loading/>)
+                            ) :
+                            (<Loading/>)
                         }
                     </tbody>
                 </table>

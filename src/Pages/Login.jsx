@@ -200,7 +200,7 @@ const Login = () => {
                     </motion.div>
 
                     <motion.div
-                        className="lg:block w-full lg:w-1/2 p-16 bg-[#228B22] flex items-center justify-center relative"
+                        className="lg:flex hidden w-full lg:w-1/2 p-16 bg-[#228B22] items-center justify-center relative"
                         variants={imageVariants}
                         initial="hidden"
                         animate="visible"

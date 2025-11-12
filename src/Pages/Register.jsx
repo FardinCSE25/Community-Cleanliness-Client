@@ -253,7 +253,7 @@ const Register = () => {
 
 
                 <motion.div
-                    className="hidden lg:block w-full lg:w-1/2 p-16 bg-[#228B22] flex items-center justify-center relative"
+                    className="hidden lg:flex w-full lg:w-1/2 p-16 bg-[#228B22] items-center justify-center relative"
                     variants={imageVariants}
                     initial="hidden"
                     animate="visible"

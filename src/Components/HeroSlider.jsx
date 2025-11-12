@@ -92,7 +92,7 @@ const HeroSlider = () => {
         ))}
       </div>
 
-      <div className="absolute -top-40 left-0 right-0 bottom-0 z-20 h-full flex items-center"> 
+      <div className="absolute -top-40 left-0 right-0 bottom-0 h-full flex items-center"> 
         <div className="container mx-auto px-6 md:px-12 lg:px-20 w-full"> 
           <div className="max-w-2xl"> 
             {slides.map((slide, index) => (
