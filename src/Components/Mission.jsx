@@ -37,7 +37,7 @@ const missions = [
 const MissionSection = () => {
   return (
     <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto my-10 ">
-      
+
       <h2 className="text-5xl font-extrabold text-center text-base-content mb-4">
         Our Mission
       </h2>
@@ -49,22 +49,21 @@ const MissionSection = () => {
         {missions.map((mission, index) => (
           <div
             key={index}
-            // Card styling using DaisyUI/Tailwind for light/dark mode compatibility
             className="card p-8 bg-base-100 shadow-xl border-t-4 hover:shadow-2xl transition duration-300 transform hover:-translate-y-1"
             style={{ borderTopColor: '#228B22' }}
           >
             <div className="card-body p-0 items-center text-center">
-                <div className="mb-4 p-4 rounded-full bg-base-200 border-2" style={{ borderColor: '#228B22' }}>
-                    {mission.icon}
-                </div>
+              <div className="mb-4 p-4 rounded-full bg-base-200 border-2" style={{ borderColor: '#228B22' }}>
+                {mission.icon}
+              </div>
 
-                <h3 className="text-2xl font-bold mb-3" style={{ color: '#228B22' }}>
-                    {mission.title}
-                </h3>
-                
-                <p className="text-base-content/80">
-                    {mission.desc}
-                </p>
+              <h3 className="text-2xl font-bold mb-3" style={{ color: '#228B22' }}>
+                {mission.title}
+              </h3>
+
+              <p className="text-base-content/80">
+                {mission.desc}
+              </p>
             </div>
           </div>
         ))}

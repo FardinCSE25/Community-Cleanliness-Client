@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 
-// Mock Statuses/Severity (since the original issue object didn't have a status)
 const issueSeverities = {
   'Garbage': 'High',
   'Illegal Construction': 'Critical',
@@ -18,7 +17,6 @@ const issueSeverities = {
 const RecentIssuesUI = ({ issue, index }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Animation variants
   const cardVariants = {
     hidden: {
       opacity: 0,
@@ -37,9 +35,9 @@ const RecentIssuesUI = ({ issue, index }) => {
       }
     },
     hover: {
-      y: -6, // Increased hover lift
-      scale: 1.02, // Slightly increased scale
-      boxShadow: "0 10px 20px rgba(0, 0, 0, 0.1)", // Added shadow for depth
+      y: -6,
+      scale: 1.02,
+      boxShadow: "0 10px 20px rgba(0, 0, 0, 0.1)",
       transition: {
         type: "spring",
         stiffness: 400,
@@ -71,8 +69,6 @@ const RecentIssuesUI = ({ issue, index }) => {
       }
     }
   };
-
-  // Get category color
   const getCategoryColor = (category) => {
     const colors = {
       'Garbage': { gradient: 'from-green-500 to-emerald-500', text: 'text-green-500' },
@@ -85,7 +81,6 @@ const RecentIssuesUI = ({ issue, index }) => {
     return colors[category] || { gradient: 'from-green-500 to-emerald-500', text: 'text-green-500' };
   };
 
-  // Get severity color for the right-side section
   const getSeverityStyle = (severity) => {
     switch (severity) {
       case 'Critical': return { bg: 'bg-red-100 dark:bg-red-900/50', text: 'text-red-600 dark:text-red-400', ring: 'ring-red-500' };
@@ -95,7 +90,6 @@ const RecentIssuesUI = ({ issue, index }) => {
     }
   };
 
-  // Format date
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
@@ -119,16 +113,16 @@ const RecentIssuesUI = ({ issue, index }) => {
       onHoverEnd={() => setIsHovered(false)}
       className="relative group bg-white dark:bg-gray-800 rounded-2xl p-0 shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 transform hover:shadow-2xl"
     >
-      {/* Animated Background Gradient */}
+
       <motion.div
         animate={isHovered ? { opacity: 0.08 } : { opacity: 0 }}
         className={`absolute inset-0 bg-gradient-to-br ${categoryStyle.gradient} opacity-0 transition-opacity duration-500 pointer-events-none`}
       />
 
       <div className="flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-gray-100 dark:divide-gray-700">
-        {/* Left Side: Issue Details */}
+
         <div className="flex-1 p-5 relative z-10">
-          {/* Header with Category and Date */}
+
           <div className="flex items-center justify-between mb-3">
             <motion.div variants={itemVariants}>
               <motion.span
@@ -153,7 +147,7 @@ const RecentIssuesUI = ({ issue, index }) => {
             </motion.span>
           </div>
 
-          {/* Title */}
+
           <motion.h2
             variants={itemVariants}
             className="text-lg font-extrabold text-gray-900 dark:text-white line-clamp-1 mb-2 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300 leading-snug"
@@ -161,7 +155,7 @@ const RecentIssuesUI = ({ issue, index }) => {
             {issue.title || "No title available."}
           </motion.h2>
 
-          {/* Description */}
+
           <motion.p
             variants={itemVariants}
             className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2 mb-4 leading-relaxed"
@@ -169,7 +163,7 @@ const RecentIssuesUI = ({ issue, index }) => {
             {issue.description || "No description available for this issue."}
           </motion.p>
 
-          {/* Footer Info */}
+
           <motion.div
             variants={itemVariants}
             className="flex items-center justify-between text-xs"
@@ -178,7 +172,7 @@ const RecentIssuesUI = ({ issue, index }) => {
               <MapPin size={14} className="text-green-500" />
               <span className="truncate max-w-[120px] font-medium">{issue.location || "Unknown Location"}</span>
             </div>
-            
+
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1 text-gray-400">
                 <Eye size={14} />
@@ -188,10 +182,10 @@ const RecentIssuesUI = ({ issue, index }) => {
           </motion.div>
         </div>
 
-        {/* Right Side: Action and Severity Section */}
+
         <div className="w-full sm:w-44 flex-shrink-0 p-5 flex flex-col justify-between items-center text-center">
-          
-          {/* Severity Badge */}
+
+
           <motion.div
             variants={itemVariants}
             className={`w-full p-3 rounded-xl ${severityStyle.bg} border border-dashed ${severityStyle.ring} dark:border-none`}
@@ -205,7 +199,7 @@ const RecentIssuesUI = ({ issue, index }) => {
             </p>
           </motion.div>
 
-          {/* Details Button */}
+
           <Link
             to={`/issueDetails/${issue._id}`}
             className="w-full mt-4"

@@ -116,7 +116,7 @@ const Navbar = () => {
                                 />
                             </svg>
                         </button>
-                    
+
                         <ul
                             tabIndex={0}
                             className="menu z-10000 w-44 p-2 menu-sm dropdown-content font-semibold bg-white border border-blue-200 rounded-lg shadow-lg transition-transform duration-300"
@@ -184,16 +184,16 @@ const Navbar = () => {
 
                         <div className="ml-18 md:ml-0">
                             {
-                            !user && <Link to="/login" className="btn md:mr-4 mr-1 text-white bg-[#228B22]">
-                                Login
-                            </Link>
-                        }
+                                !user && <Link to="/login" className="btn md:mr-4 mr-1 text-white bg-[#228B22]">
+                                    Login
+                                </Link>
+                            }
 
-                        {
-                            !user && <Link to="/register" className="btn text-white bg-[#228B22]">
-                                Register
-                            </Link>
-                        }
+                            {
+                                !user && <Link to="/register" className="btn text-white bg-[#228B22]">
+                                    Register
+                                </Link>
+                            }
                         </div>
 
 

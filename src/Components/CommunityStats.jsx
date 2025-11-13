@@ -1,5 +1,5 @@
 import React from "react";
-import { Users, CheckCircle, Clock } from "lucide-react"; // Importing relevant icons
+import { Users, CheckCircle, Clock } from "lucide-react";
 
 const statsData = [
   { value: "1,450+", label: "Registered Users", icon: <Users className="w-8 h-8" style={{ color: '#228B22' }} /> },
@@ -11,20 +11,20 @@ const CommunityStats = () => {
   return (
     <div className="py-16 px-4 md:px-8">
       <div className="max-w-6xl mx-auto">
-        
-        {/* Title */}
+
+
         <h2 className="text-4xl font-extrabold text-base-content mb-12 text-center">
           Community Impact Metrics
         </h2>
 
-        {/* --- FLEX GRID LAYOUT --- */}
-        {/* The container uses flex-col for small screens and flex-row for medium/large screens */}
+
+
         <div className="flex flex-col md:flex-row justify-between items-stretch gap-6 w-full">
-          
+
           {statsData.map((stat, index) => (
             <div
               key={index}
-              // flex-1 ensures the cards share space horizontally
+
               className="flex-1 min-w-[280px] card bg-base-200 shadow-xl border-t-4 p-8 text-center 
                          transition-transform duration-300 hover:shadow-2xl hover:translate-y-[-2px]
                          flex flex-col items-center justify-center"
@@ -33,7 +33,7 @@ const CommunityStats = () => {
               <div className="mb-3">
                 {stat.icon}
               </div>
-              
+
               <div className="text-base-content/70 font-medium tracking-wide mt-1">
                 {stat.label}
               </div>
@@ -42,7 +42,7 @@ const CommunityStats = () => {
                 {stat.value}
               </div>
 
-              {/* Added a subtle descriptive text for better context */}
+
               <div className="text-base-content/60 mt-2 text-sm">
                 {index === 0 && "Active participants growing monthly"}
                 {index === 1 && "Cleanliness reports successfully closed"}
@@ -50,14 +50,14 @@ const CommunityStats = () => {
               </div>
             </div>
           ))}
-          
+
         </div>
 
-        {/* Call to Action or Footer Info */}
+
         <div className="text-center mt-12">
-            <p className="text-base-content/70">
-                These numbers reflect the collective effort of our dedicated community. Join us in making an even greater impact!
-            </p>
+          <p className="text-base-content/70">
+            These numbers reflect the collective effort of our dedicated community. Join us in making an even greater impact!
+          </p>
         </div>
       </div>
     </div>

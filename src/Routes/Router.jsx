@@ -17,13 +17,13 @@ const router = createBrowserRouter([
     {
         path: "/",
         Component: Layout,
-        errorElement: <Error/>,
+        errorElement: <Error />,
         children: [
             {
                 index: true,
                 Component: Home,
                 loader: () => fetch("https://community-cleanliness-server-phi.vercel.app/recent-issues"),
-                hydrateFallbackElement: <Loading/>
+                hydrateFallbackElement: <Loading />
             },
             {
                 path: "/login",
@@ -37,25 +37,25 @@ const router = createBrowserRouter([
                 path: "/allIssues",
                 Component: AllIssues,
                 loader: () => fetch("https://community-cleanliness-server-phi.vercel.app/issues"),
-                hydrateFallbackElement: <Loading/>
+                hydrateFallbackElement: <Loading />
             },
             {
                 path: "/issueDetails/:id",
-                element: <PrivateRoute><IssueDetails/></PrivateRoute>,
+                element: <PrivateRoute><IssueDetails /></PrivateRoute>,
                 loader: () => fetch("https://community-cleanliness-server-phi.vercel.app/issues"),
-                hydrateFallbackElement: <Loading/>
+                hydrateFallbackElement: <Loading />
             },
             {
                 path: "/addIssue",
-                element: <PrivateRoute><AddIssue/></PrivateRoute>
+                element: <PrivateRoute><AddIssue /></PrivateRoute>
             },
             {
                 path: "/myIssues",
-                element: <PrivateRoute><MyIssues/></PrivateRoute>
+                element: <PrivateRoute><MyIssues /></PrivateRoute>
             },
             {
                 path: "/myContribution",
-                element: <PrivateRoute><MyContribution/></PrivateRoute>
+                element: <PrivateRoute><MyContribution /></PrivateRoute>
             },
         ]
     }

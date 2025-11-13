@@ -1,5 +1,4 @@
 import { useState, useEffect, use } from "react";
-// Assuming you have images imported correctly
 import img1 from "../assets/image1.avif";
 import img2 from "../assets/image2.jpg";
 import img3 from "../assets/image3.jpg";
@@ -33,7 +32,7 @@ const slides = [
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const {user} = use(AuthContext)
+  const { user } = use(AuthContext)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -43,7 +42,7 @@ const HeroSlider = () => {
   }, [currentSlide]);
 
   const nextSlide = () => {
-    setIsTransitioning(true); 
+    setIsTransitioning(true);
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
@@ -62,26 +61,25 @@ const HeroSlider = () => {
   };
 
   return (
-    <div className="relative w-full h-[70vh] z-0 overflow-hidden"> 
+    <div className="relative w-full h-[70vh] z-0 overflow-hidden">
       <div className="relative w-full h-full">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-transform duration-1000 ease-out ${
-              isTransitioning ? "transitioning" : ""
-            }`}
+            className={`absolute inset-0 transition-transform duration-1000 ease-out ${isTransitioning ? "transitioning" : ""
+              }`}
             style={{
               transform: `translateX(${(index - currentSlide) * 100}%)`,
               backgroundImage: `url(${slide.img})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
-              backgroundAttachment: "fixed", 
+              backgroundAttachment: "fixed",
             }}
             onTransitionEnd={handleTransitionEnd}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
-            
-            <div 
+
+            <div
               className="absolute inset-0 opacity-10"
               style={{
                 backgroundImage: `radial-gradient(circle at 25% 25%, rgba(255,255,255,0.3) 1px, transparent 1px)`,
@@ -92,17 +90,16 @@ const HeroSlider = () => {
         ))}
       </div>
 
-      <div className="absolute -top-40 left-0 right-0 bottom-0 h-full flex items-center"> 
-        <div className="container mx-auto px-6 md:px-12 lg:px-20 w-full"> 
-          <div className="max-w-2xl"> 
+      <div className="absolute -top-40 left-0 right-0 bottom-0 h-full flex items-center">
+        <div className="container mx-auto px-6 md:px-12 lg:px-20 w-full">
+          <div className="max-w-2xl">
             {slides.map((slide, index) => (
               <div
                 key={slide.id}
-                className={`absolute transition-all duration-700 ease-out w-full text-white ${
-                  index === currentSlide
+                className={`absolute transition-all duration-700 ease-out w-full text-white ${index === currentSlide
                     ? "opacity-100 transform translate-x-0"
                     : "opacity-0 transform translate-x-10 pointer-events-none"
-                }`}
+                  }`}
               >
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-left">
                   {slide.title}{" "}
@@ -110,7 +107,7 @@ const HeroSlider = () => {
                     {slide.highlight}
                   </span>
                 </h1>
-                
+
                 <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed text-left max-w-xl">
                   Join thousands of community members making our neighborhoods cleaner and greener.
                 </p>
@@ -119,12 +116,12 @@ const HeroSlider = () => {
                   <button
                     className="group relative px-8 py-4 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl bg-[#228B22]"
                   >
-                    <Link to={user ? '' : '/login' } className="relative z-10
+                    <Link to={user ? '' : '/login'} className="relative z-10
                     ">{slide.buttonText}</Link>
                     <div className="absolute inset-0 bg-[#228B22] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div className="absolute inset-0 bg-white/10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                   </button>
-                  
+
                   <button className="px-8 py-4 rounded-xl font-semibold text-white border-2 border-white/30 hover:border-white/60 hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
                     Learn More
                   </button>
@@ -158,11 +155,10 @@ const HeroSlider = () => {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
                 ? "bg-[#228B22] scale-125"
                 : "bg-white/50 hover:bg-white/80"
-            }`}
+              }`}
           />
         ))}
       </div>

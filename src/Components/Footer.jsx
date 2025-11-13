@@ -1,14 +1,10 @@
 
-// Removed 'framer-motion' imports to comply with single-file environment constraints
-import { Twitter, Facebook, Youtube, ArrowRight, Mail, MapPin, Phone, Heart, Sparkles, Trees, Users, Shield, Globe, Sun, Moon } from 'lucide-react';
+import { Facebook, Youtube, ArrowRight, Mail, MapPin, Phone, Heart, Trees, Users, Shield, Globe } from 'lucide-react';
 import { FaXTwitter } from 'react-icons/fa6';
 import logo from "../assets/28ea99ca-c20d-4bea-adfa-cd5f91d53bb2.jpeg"
-// Removed external imports like FaXTwitter and react-router's Link.
-// Using standard <a> tags and inline SVG for the 'X' icon.
+
 
 const FloatingCircle = ({ className, size, duration, delay }) => {
-    // This component replaces Framer Motion's animated background elements
-    // It uses standard CSS animation/transition for visual flair
     return (
         <div
             className={`absolute rounded-full pointer-events-none transition-opacity ${className}`}
@@ -24,7 +20,6 @@ const FloatingCircle = ({ className, size, duration, delay }) => {
 };
 
 const Footer = () => {
-    // Replaced Framer Motion components with simple divs and Tailwind classes
     const NavLink = ({ href, children }) => (
         <a
             href={href}
@@ -45,28 +40,27 @@ const Footer = () => {
 
     return (
         <footer
-            // Use DaisyUI theme classes for colors: bg-base-100/20 is theme-responsive
             className="font-sans relative overflow-hidden bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-emerald-900/20"
         >
-            {/* Custom CSS for animation (replace Framer Motion) */}
+
             <style jsx="true">{`
                 @keyframes floatAnim {
                     0% { transform: translateY(0px); }
                     100% { transform: translateY(-15px); }
                 }
             `}</style>
-            
-            {/* Animated Background Elements */}
+
+
             <FloatingCircle className="top-10 left-5 bg-[#228B22]" size={24} duration={4} delay={0} />
             <FloatingCircle className="top-32 right-10 bg-info" size={32} duration={5} delay={1} />
             <FloatingCircle className="bottom-44 left-1/4 bg-warning" size={16} duration={3.5} delay={2} />
 
-            {/* CTA Banner Section (Made DaisyUI [#228B22] Color Driven) */}
+
             <div
                 className="w-full bg-gradient-to-r from-green-800 to-green-400
                            py-16 rounded-t-[4rem] md:rounded-t-[5rem] shadow-2xl relative overflow-hidden mb-12"
             >
-                {/* Animated Background Pattern */}
+
                 <div className="absolute inset-0 opacity-10">
                     <div className="absolute top-10 left-10 w-20 h-20 border-2 border-[#228B22]-content rounded-full"></div>
                     <div className="absolute bottom-10 right-10 w-32 h-32 border-2 border-[#228B22]-content rounded-full"></div>
@@ -75,7 +69,7 @@ const Footer = () => {
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center px-6 relative z-10">
                     <div className="text-center lg:text-left mb-8 lg:mb-0">
                         <h3 className="text-4xl lg:text-5xl font-black text-[#228B22]-content mb-4 leading-tight">
-                            Together We Can Make 
+                            Together We Can Make
                             <span className="block text-warning">
                                 A Cleaner World
                             </span>
@@ -84,9 +78,9 @@ const Footer = () => {
                             Join thousands of community heroes in making our environment cleaner and safer for everyone. 🌍
                         </p>
                     </div>
-                    
+
                     <div className="flex flex-col sm:flex-row gap-4">
-                        {/* Report Issue Button - [#228B22] */}
+
                         <a
                             href="/addIssue"
                             className="btn btn-[#228B22] btn-lg shadow-xl hover:shadow-2xl transition duration-300 relative overflow-hidden group"
@@ -97,7 +91,7 @@ const Footer = () => {
                             </span>
                         </a>
 
-                        {/* Volunteer Button - Outline */}
+
                         <button
                             className="btn btn-outline btn-lg text-[#228B22]-content border-2 border-[#228B22]-content hover:bg-[#228B22]-content/10 transition duration-300"
                         >
@@ -107,11 +101,11 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Main Footer Content (Uses base-100/200 for full dark mode support) */}
+
             <div className="w-full bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-emerald-900/20 pt-12 pb-16 relative">
                 <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12">
-                    
-                    {/* Brand Section */}
+
+
                     <div className="lg:col-span-2 space-y-6">
                         <div className="flex items-center gap-4 mb-6 transition-transform hover:scale-[1.02]">
                             <div className="transition-transform hover:rotate-[360deg] duration-700">
@@ -132,11 +126,11 @@ const Footer = () => {
                         </div>
 
                         <p className="text-base-content/80 text-lg leading-relaxed transition-transform hover:scale-[1.01]">
-                            🌱 Empowering communities to create sustainable, clean environments through technology and collective action. 
+                            🌱 Empowering communities to create sustainable, clean environments through technology and collective action.
                             Every report makes a difference!
                         </p>
 
-                        {/* Contact Info */}
+
                         <div className="space-y-3 pt-4">
                             <div className="flex items-center gap-3 text-base-content/80 hover:text-[#228B22] transition-colors duration-200 group cursor-pointer hover:translate-x-1">
                                 <div className="p-2 bg-[#228B22]/10 rounded-lg group-hover:bg-[#228B22]/20 transition-colors">
@@ -160,12 +154,11 @@ const Footer = () => {
                             </div>
                         </div>
 
-                        {/* Social Media */}
+
                         <div className="flex gap-4 pt-4">
                             {[
                                 { icon: <Facebook className="w-5 h-5" />, href: "https://www.facebook.com/fardin.ahmed.493619/", color: "text-blue-600 hover:bg-blue-600/10" },
-                                // Inline SVG for X logo (since FaXTwitter is external)
-                                { icon: <FaXTwitter/>, href: "https://x.com/FardinAhmed203", color: "text-base-content hover:bg-base-content/10" },
+                                { icon: <FaXTwitter />, href: "https://x.com/FardinAhmed203", color: "text-base-content hover:bg-base-content/10" },
                                 { icon: <Youtube className="w-5 h-5" />, href: "https://www.youtube.com/@Nafiz0809", color: "text-red-600 hover:bg-red-600/10" },
                             ].map((social, index) => (
                                 <a
@@ -181,7 +174,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Navigation Columns */}
+
                     <nav className="space-y-0">
                         <h6 className="text-xl font-bold text-base-content flex items-center gap-2 pb-1 mb-2 border-b-2 border-[#228B22]/40">
                             <Trees className="w-5 h-5 text-[#228B22]" />
@@ -215,7 +208,7 @@ const Footer = () => {
                         ].map((item, index) => <NavLink key={index} href="#">{item}</NavLink>)}
                     </nav>
 
-                    {/* Impact Stats */}
+
                     <div className="lg:col-span-1 space-y-4">
                         <h6 className="text-xl font-bold text-base-content flex items-center gap-2 pb-2 mb-2 border-b-2 border-[#228B22]/40">
                             <Globe className="w-5 h-5 text-[#228B22]" />
@@ -231,7 +224,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Bottom Bar */}
+
             <div
                 className="w-full bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-emerald-900/20 border-t border-base-300 px-6 py-6"
             >
@@ -244,7 +237,7 @@ const Footer = () => {
                             Made with <Heart className="w-4 h-4 text-error fill-error animate-pulse" /> for a better planet
                         </span>
                     </p>
-                    
+
                     <div className="flex items-center gap-6 text-sm text-base-content/60">
                         {["Privacy", "Terms", "Cookies", "Security"].map((item, index) => (
                             <a
@@ -262,17 +255,11 @@ const Footer = () => {
     );
 };
 
-
-// Main App component to demonstrate dark mode with DaisyUI
 const App = () => {
-    // State to manage the theme (light or dark)
-
-    // Function to toggle between light and dark themes
-    
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-emerald-900/20 font-sans">
-            {/* The responsive Footer component */}
+
             <Footer />
         </div>
     );

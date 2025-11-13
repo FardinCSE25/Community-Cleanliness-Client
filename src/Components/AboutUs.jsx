@@ -15,7 +15,6 @@ import badge from "../assets/badge.png";
 import { Link } from 'react-router';
 
 const AboutUs = () => {
-    // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -168,7 +167,7 @@ const AboutUs = () => {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                             </div>
 
-        
+
                             <motion.div
                                 variants={badgeVariants}
                                 initial="hidden"
@@ -187,7 +186,7 @@ const AboutUs = () => {
                                 </div>
                             </motion.div>
 
-        
+
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -236,7 +235,7 @@ const AboutUs = () => {
 
                         </motion.div>
 
-    
+
                         <motion.div
                             variants={containerVariants}
                             className="grid gap-4 mt-8"
@@ -267,7 +266,7 @@ const AboutUs = () => {
                             ))}
                         </motion.div>
 
-    
+
                         <motion.div
                             variants={itemVariants}
                             className="mt-8"

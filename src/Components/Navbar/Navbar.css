@@ -2,27 +2,24 @@ ul a {
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* 🌞 Light Theme Styles */
 html[data-theme='light'] ul a {
-  color: black; /* inactive links */
+  color: black;
 }
 
 html[data-theme='light'] ul a.active {
-  color: #228B22; /* active link */
+  color: #228B22;
   text-decoration: underline;
 }
 
-/* 🌙 Dark Theme Styles */
 html[data-theme='dark'] ul a {
-  color: white; /* inactive links */
+  color: white;
 }
 
 html[data-theme='dark'] ul a.active {
-  color: #228B22; /* active link */
+  color: #228B22;
   text-decoration: underline;
 }
 
-/* 🌀 Hover effect same for both themes */
 ul a:hover {
   transform: scale(1.05);
   transition: all 0.3s ease-in-out;

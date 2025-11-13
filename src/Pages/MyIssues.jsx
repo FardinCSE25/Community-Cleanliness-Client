@@ -141,7 +141,7 @@ const MyIssues = () => {
             <title>Community Cleanliness - My Issues</title>
 
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-                {/* Header Section */}
+
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -156,7 +156,7 @@ const MyIssues = () => {
                     </p>
                 </motion.div>
 
-                {/* Stats Card - Only Total Issues */}
+
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -175,7 +175,7 @@ const MyIssues = () => {
                     </div>
                 </motion.div>
 
-                {/* Issues Grid */}
+
                 {issues.length === 0 ? (
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -195,9 +195,9 @@ const MyIssues = () => {
                             whileTap={{ scale: 0.95 }}
                             className="btn bg-[#228B22] text-white font-semibold py-3 px-8 rounded-xl"
                         >
-                           <Link to="/addIssue">
-                            Report First Issue
-                           </Link>
+                            <Link to="/addIssue">
+                                Report First Issue
+                            </Link>
                         </motion.button>
                     </motion.div>
                 ) : (
@@ -215,7 +215,7 @@ const MyIssues = () => {
                                 >
                                     <div className="p-6">
                                         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-                                            {/* Issue Info */}
+
                                             <div className="flex-1">
                                                 <div className="flex items-center gap-3 mb-3">
                                                     <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${getCategoryColor(issue.category)}`}>
@@ -247,7 +247,7 @@ const MyIssues = () => {
                                                 </div>
                                             </div>
 
-                                            {/* Action Buttons - Green & White Theme */}
+
                                             <div className="flex items-center gap-3">
                                                 <motion.button
                                                     whileHover={{ scale: 1.05 }}
@@ -277,11 +277,11 @@ const MyIssues = () => {
                     </div>
                 )}
 
-                {/* Enhanced Update Issue Modal */}
+
                 <dialog ref={issueModalRef} className="modal modal-middle">
                     <div className="modal-box max-w-2xl p-0 rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:bg-black bg-white">
 
-                        {/* Header */}
+
                         <div className="p-6 bg-green-600 text-white relative border-b-4 border-green-700">
                             <div className="flex items-center justify-between">
                                 <div>
@@ -310,7 +310,7 @@ const MyIssues = () => {
                                     </p>
                                 </div>
 
-                                {/* Close Button */}
+
                                 <motion.button
                                     whileHover={{ scale: 1.1, rotate: 90 }}
                                     whileTap={{ scale: 0.9 }}
@@ -336,14 +336,14 @@ const MyIssues = () => {
                             </div>
                         </div>
 
-                        {/* Form */}
+
                         {selectedIssue && (
                             <form
                                 onSubmit={(e) => handleIssueUpdate(selectedIssue._id, e)}
                                 className="p-8"
                             >
                                 <div className="space-y-6">
-                                    {/* Title */}
+
                                     <div className="form-control">
                                         <label className="label flex">
                                             <span className="label-text text-lg font-bold text-gray-700 dark:text-gray-200 flex items-center gap-2">
@@ -376,7 +376,7 @@ const MyIssues = () => {
                                         />
                                     </div>
 
-                                    {/* Category & Amount */}
+
                                     <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                                         <div className="form-control">
                                             <label className="label flex">
@@ -435,7 +435,7 @@ const MyIssues = () => {
                                         </div>
                                     </div>
 
-                                    {/* Description */}
+
                                     <div className="form-control">
                                         <label className="label flex">
                                             <span className="mb-2 label-text text-lg font-bold text-gray-700 dark:text-gray-200">
@@ -458,7 +458,7 @@ const MyIssues = () => {
                                     </div>
                                 </div>
 
-                                {/* Buttons */}
+
                                 <div className="modal-action mt-8 flex flex-col sm:flex-row gap-4">
                                     <motion.button
                                         type="submit"
@@ -510,7 +510,7 @@ const MyIssues = () => {
                                     </motion.button>
                                 </div>
 
-                                {/* Info */}
+
                                 <div className="mt-6 p-4 rounded-xl text-center bg-green-50 border border-green-200">
                                     <p className="text-sm font-medium text-gray-600">
                                         💡 Your updates will be reviewed by our team before being approved
@@ -521,7 +521,7 @@ const MyIssues = () => {
                         )}
                     </div>
 
-                    {/* Backdrop */}
+
                     <form method="dialog" className="modal-backdrop">
                         <button>close</button>
                     </form>

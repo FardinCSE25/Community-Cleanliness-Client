@@ -19,7 +19,6 @@ const AddIssue = () => {
         const amount = e.target.amount.value;
         const email = e.target.email.value;
         const description = e.target.description.value;
-        // console.log(title, category, location, image, name, email, amount, description);
 
         const newIssue = {
             title: title,
