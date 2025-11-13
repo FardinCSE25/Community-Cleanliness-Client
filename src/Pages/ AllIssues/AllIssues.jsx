@@ -1,51 +1,119 @@
-import React, { useState } from 'react';
-import { useLoaderData } from 'react-router';
-import AllIssuesUI from '../ AllIssues/AllIssuesUI';
+// AllIssues.jsx
+
+import React, { useState, useMemo } from 'react';
+import { useLoaderData } from 'react-router'; // Using react-router-dom
+// eslint-disable-next-line no-unused-vars
+import { motion, AnimatePresence } from 'framer-motion';
+import { Filter, Search } from 'lucide-react';
+import AllIssuesUI from './AllIssuesUI'; // Assuming AllIssuesUI is in the same directory
 
 const AllIssues = () => {
-    const issuesList = useLoaderData();
-    const [filter, setFilter] = useState("All")
+    // Note: useLoaderData usually comes from 'react-router-dom', ensure your imports match your environment.
+    const issuesList = useLoaderData() || [];
+    
+    // Add dummy _id and date for better UI stability and sorting (if not present)
+    const issuesWithMeta = useMemo(() => issuesList.map(issue => ({
+        ...issue,
+        _id: issue._id || Math.random().toString(36).substring(2, 9),
+        date: issue.date || new Date(Date.now() - Math.random() * 86400000 * 30).toISOString(),
+    })), [issuesList]);
 
-    const filteredIssues = (() => {
-      if(filter=='All'){
-        return issuesList
-      }
-        else if (filter) {
-            return issuesList.filter(issues => issues.category == filter)
+    const [filter, setFilter] = useState("All");
+
+    const filteredIssues = useMemo(() => {
+        let filtered = issuesWithMeta;
+        
+        if (filter !== 'All') {
+            filtered = filtered.filter(issue => issue.category === filter);
         }
-    })()
+
+        // Basic sorting by date (newest first)
+        filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        return filtered;
+    }, [filter, issuesWithMeta]);
+
+    const categories = ["All", "Garbage", "Illegal Construction", "Broken Public Property", "Road Damage"];
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+            },
+        },
+    };
+
     return (
-      
-     <div>
-     <title>Community Cleanliness- All Issues</title>
-       <div className='w-11/12 mx-auto pt-52 flex justify-between items-center'>
-       <div>
-         <h1 className='text-5xl mb-10 font-bold text-left'>
-                All Issues
-            </h1>
-       </div>
-            <div className='flex flex-col text-lg'>
-              <label className='ml-3'>Filter by</label>
-              <select className='border-2 dark:border-gray-200 dark:bg-black border-black rounded-md p-1' value={filter} onChange={e => setFilter(e.target.value)}>
-                        <option value="All">All</option>
-                        <option value="Garbage">Garbage</option>
-                        <option value="Illegal Construction">Illegal Construction</option>
-                        <option value="Broken Public Property">Broken Public Property</option>
-                        <option value="Road Damage">Road Damage</option>
-                    </select>
+        <div className="min-h-screen bg-gray-50/50">
+            <title>Community Cleanliness - All Issues</title>
+
+            <div className='max-w-7xl mx-auto pt-44 pb-12 px-4 sm:px-6 lg:px-8'>
+                {/* Header and Filter Controls */}
+                <motion.div 
+                    className='md:flex justify-between items-center mb-10 p-6 bg-white rounded-2xl shadow-lg border border-gray-100'
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <h1 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 md:mb-0 bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-emerald-500'>
+                        🌟 All Community Issues
+                    </h1>
+                    
+                    <div className='flex flex-col text-lg'>
+                        <label className='ml-1 mb-1 font-semibold text-gray-700 flex items-center gap-1'>
+                            <Filter size={18} className='text-green-500'/> Filter by Category:
+                        </label>
+                        <motion.select 
+                            className='w-full md:w-56 border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 rounded-xl p-3 text-base shadow-sm focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-300 appearance-none' 
+                            value={filter} 
+                            onChange={e => setFilter(e.target.value)}
+                            whileHover={{ scale: 1.01 }}
+                        >
+                            {categories.map(cat => (
+                                <option key={cat} value={cat}>{cat} {cat === 'All' ? '🌍' : '➡️'}</option>
+                            ))}
+                        </motion.select>
+                    </div>
+                </motion.div>
+
+                {/* Issues Grid */}
+                <motion.div 
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    layout
+                >
+                    <AnimatePresence>
+                        {filteredIssues.length > 0 ? (
+                            filteredIssues.map((issue, index) => (
+                                <motion.div key={issue._id} layout exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.3 } }}>
+                                    {/* Pass index for staggered load effect */}
+                                    <AllIssuesUI issue={issue} index={index} />
+                                </motion.div>
+                            ))
+                        ) : (
+                            // Empty State
+                            <motion.div 
+                                key="empty-state"
+                                className="md:col-span-3 text-center py-20 bg-white/70 rounded-2xl shadow-lg border border-gray-100"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.5 }}
+                            >
+                                <div className="text-7xl mb-4">😔</div>
+                                <h3 className="text-2xl font-bold text-gray-800 mb-2">No Issues Found</h3>
+                                <p className="text-gray-500">Try selecting "All" or a different category.</p>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </motion.div>
             </div>
-       </div>
-     
-    <div className="w-11/12 mx-auto py-6 grid md:grid-cols-3 gap-6">
-      {filteredIssues?.map(issue => (
-        <AllIssuesUI 
-          key={issue._id} 
-          issue={issue} 
-        />
-      ))}
-    </div>
-    </div>
-  );
+        </div>
+    );
 };
 
 export default AllIssues;

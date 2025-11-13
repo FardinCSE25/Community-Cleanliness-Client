@@ -108,6 +108,11 @@ const Register = () => {
         visible: { x: 0, opacity: 1, transition: { type: 'spring', stiffness: 50, damping: 15, delay: 0.2 } }
     };
 
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100 py-44 px-4 font-inter">
             <title>Community Cleanliness- Register</title>

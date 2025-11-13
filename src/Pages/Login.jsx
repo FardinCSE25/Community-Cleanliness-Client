@@ -15,6 +15,11 @@ const Login = () => {
 
     const navigate = useNavigate()
 
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+
     const handleGoogleSignIn = (e) => {
         e.preventDefault()
         googleSignIn()

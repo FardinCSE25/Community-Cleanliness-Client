@@ -1,34 +1,65 @@
+import React from "react";
+import { Users, CheckCircle, Clock } from "lucide-react"; // Importing relevant icons
+
+const statsData = [
+  { value: "1,450+", label: "Registered Users", icon: <Users className="w-8 h-8" style={{ color: '#228B22' }} /> },
+  { value: "862", label: "Issues Resolved", icon: <CheckCircle className="w-8 h-8" style={{ color: '#228B22' }} /> },
+  { value: "476", label: "Pending Issues", icon: <Clock className="w-8 h-8" style={{ color: '#228B22' }} /> },
+];
+
 const CommunityStats = () => {
   return (
-    <div>
-      <div className="max-w-6xl mx-auto px-4 pt-16 pb-10">
-      <h2 className="text-2xl md:text-3xl font-bold dark:text-gray-200 text-black mb-10 text-center">
-        Community Stats
-      </h2>
+    <div className="py-16 px-4 md:px-8 bg-base-100">
+      <div className="max-w-6xl mx-auto">
+        
+        {/* Title */}
+        <h2 className="text-4xl font-extrabold text-base-content mb-12 text-center">
+          Community Impact Metrics
+        </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto text-center">
-        {[
-          { value: "1,450+", label: "Registered Users" },
-          { value: "862", label: "Issues Resolved" },
-          { value: "476", label: "Pending" },
-        ].map((stat, index) => (
-          <div
-            key={index}
-            className="bg-white border border-gray-100 rounded-2xl py-10 px-6 
-                       shadow-md hover:shadow-xl transform hover:-translate-y-2 hover:scale-105 
-                       transition-all duration-300 ease-out"
-          >
-            <h3 className="text-4xl font-extrabold text-[#228B22] drop-shadow-sm transition-transform duration-300">
-              {stat.value}
-            </h3>
-            <p className="text-gray-600 mt-3 font-medium tracking-wide">
-              {stat.label}
+        {/* --- FLEX GRID LAYOUT --- */}
+        {/* The container uses flex-col for small screens and flex-row for medium/large screens */}
+        <div className="flex flex-col md:flex-row justify-between items-stretch gap-6 w-full">
+          
+          {statsData.map((stat, index) => (
+            <div
+              key={index}
+              // flex-1 ensures the cards share space horizontally
+              className="flex-1 min-w-[280px] card bg-base-200 shadow-xl border-t-4 p-8 text-center 
+                         transition-transform duration-300 hover:shadow-2xl hover:translate-y-[-2px]
+                         flex flex-col items-center justify-center"
+              style={{ borderTopColor: '#228B22' }}
+            >
+              <div className="mb-3">
+                {stat.icon}
+              </div>
+              
+              <div className="text-base-content/70 font-medium tracking-wide mt-1">
+                {stat.label}
+              </div>
+
+              <div className="text-5xl font-extrabold my-2" style={{ color: '#228B22' }}>
+                {stat.value}
+              </div>
+
+              {/* Added a subtle descriptive text for better context */}
+              <div className="text-base-content/60 mt-2 text-sm">
+                {index === 0 && "Active participants growing monthly"}
+                {index === 1 && "Cleanliness reports successfully closed"}
+                {index === 2 && "Awaiting action and resolution"}
+              </div>
+            </div>
+          ))}
+          
+        </div>
+
+        {/* Call to Action or Footer Info */}
+        <div className="text-center mt-12">
+            <p className="text-base-content/70">
+                These numbers reflect the collective effort of our dedicated community. Join us in making an even greater impact!
             </p>
-            <div className="mt-4 w-16 h-1 mx-auto bg-[#228B22] rounded-full opacity-0 group-hover:opacity-100 transition duration-300"></div>
-          </div>
-        ))}
+        </div>
       </div>
-    </div>
     </div>
   );
 };

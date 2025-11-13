@@ -6,7 +6,7 @@
 ---
 
 ## 🧠 Project Overview
-This is a web-application that empowers communities to report and manage local environmental issues easily.
+This is a full-stack MERN application that empowers communities to report and manage local environmental issues easily.
 Users can submit complaints, pay for cleanup requests, and track progress — promoting cleaner, greener neighborhoods 🌿
 
 ---
