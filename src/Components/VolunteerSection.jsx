@@ -6,7 +6,7 @@ const VolunteerSection = () => {
   // Placeholder URL for the image
 
   return (
-    <div className="py-16 px-4 md:px-8 bg-base-100 w-full"> {/* Full width background container */}
+    <div className="py-16 px-4 md:px-8 w-full"> {/* Full width background container */}
       <section
         className="flex flex-col md:flex-row items-center justify-between 
                    bg-base-200 rounded-3xl shadow-2xl border border-base-300
@@ -22,13 +22,6 @@ const VolunteerSection = () => {
             Join hands with your community to report and resolve cleanliness issues. Together, let’s build a greener and cleaner neighborhood. Every minute you volunteer makes a tangible impact on our environment. 🌿
           </p>
           
-          {/* Call to Action Button */}
-          <button 
-            className="btn btn-lg text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition duration-300"
-            style={{ backgroundColor: '#228B22' }}
-          >
-            Find a Drive Near You
-          </button>
         </div>
 
         {/* Image Content */}

@@ -9,7 +9,7 @@ const statsData = [
 
 const CommunityStats = () => {
   return (
-    <div className="py-16 px-4 md:px-8 bg-base-100">
+    <div className="py-16 px-4 md:px-8">
       <div className="max-w-6xl mx-auto">
         
         {/* Title */}

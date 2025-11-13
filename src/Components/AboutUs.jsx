@@ -115,9 +115,8 @@ const AboutUs = () => {
     ];
 
     return (
-        <section className="min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-emerald-900/20 py-20 lg:py-32">
+        <section className="min-h-screen py-20 lg:py-32">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Header Section */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -148,7 +147,7 @@ const AboutUs = () => {
                 </motion.div>
 
                 <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 items-center">
-                    {/* Image Section */}
+
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"
@@ -169,7 +168,7 @@ const AboutUs = () => {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                             </div>
 
-                            {/* Floating Badge */}
+        
                             <motion.div
                                 variants={badgeVariants}
                                 initial="hidden"
@@ -188,7 +187,7 @@ const AboutUs = () => {
                                 </div>
                             </motion.div>
 
-                            {/* Stats Overlay */}
+        
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -219,7 +218,7 @@ const AboutUs = () => {
                         </motion.div>
                     </motion.div>
 
-                    {/* Content Section */}
+
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"
@@ -237,7 +236,7 @@ const AboutUs = () => {
 
                         </motion.div>
 
-                        {/* Features Grid */}
+    
                         <motion.div
                             variants={containerVariants}
                             className="grid gap-4 mt-8"
@@ -268,7 +267,7 @@ const AboutUs = () => {
                             ))}
                         </motion.div>
 
-                        {/* CTA Button */}
+    
                         <motion.div
                             variants={itemVariants}
                             className="mt-8"

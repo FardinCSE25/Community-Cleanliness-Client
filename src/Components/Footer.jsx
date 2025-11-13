@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+
 // Removed 'framer-motion' imports to comply with single-file environment constraints
 import { Twitter, Facebook, Youtube, ArrowRight, Mail, MapPin, Phone, Heart, Sparkles, Trees, Users, Shield, Globe, Sun, Moon } from 'lucide-react';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -24,9 +24,6 @@ const FloatingCircle = ({ className, size, duration, delay }) => {
 };
 
 const Footer = () => {
-    // Placeholder URL for the logo (must replace local imports)
-    const logoUrl = "https://placehold.co/48x48/228B22/ffffff?text=CC";
-
     // Replaced Framer Motion components with simple divs and Tailwind classes
     const NavLink = ({ href, children }) => (
         <a
@@ -39,7 +36,7 @@ const Footer = () => {
 
     const StatCard = ({ number, label }) => (
         <div
-            className="text-center p-3 bg-base-100 rounded-xl border border-base-300 shadow-md hover:shadow-lg transition duration-300 hover:scale-[1.03]"
+            className="text-center p-3 rounded-xl border border-base-300 shadow-md hover:shadow-lg transition duration-300 hover:scale-[1.03]"
         >
             <div className="text-xl font-black text-[#228B22]">{number}</div>
             <div className="text-xs text-base-content/70">{label}</div>
@@ -49,7 +46,7 @@ const Footer = () => {
     return (
         <footer
             // Use DaisyUI theme classes for colors: bg-base-100/20 is theme-responsive
-            className="font-sans bg-base-100/20 relative overflow-hidden pt-12"
+            className="font-sans relative overflow-hidden bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-emerald-900/20"
         >
             {/* Custom CSS for animation (replace Framer Motion) */}
             <style jsx="true">{`
@@ -111,7 +108,7 @@ const Footer = () => {
             </div>
 
             {/* Main Footer Content (Uses base-100/200 for full dark mode support) */}
-            <div className="w-full bg-base-200 pt-12 pb-16 relative">
+            <div className="w-full bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-emerald-900/20 pt-12 pb-16 relative">
                 <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12">
                     
                     {/* Brand Section */}
@@ -236,7 +233,7 @@ const Footer = () => {
 
             {/* Bottom Bar */}
             <div
-                className="w-full bg-base-100 border-t border-base-300 px-6 py-6"
+                className="w-full bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-emerald-900/20 border-t border-base-300 px-6 py-6"
             >
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-4">
                     <p
@@ -269,44 +266,12 @@ const Footer = () => {
 // Main App component to demonstrate dark mode with DaisyUI
 const App = () => {
     // State to manage the theme (light or dark)
-    const [theme, setTheme] = useState('light');
-
-    // Effect to apply the theme to the HTML element
-    useEffect(() => {
-        document.documentElement.setAttribute('data-theme', theme);
-    }, [theme]);
 
     // Function to toggle between light and dark themes
-    const toggleTheme = () => {
-        setTheme(currentTheme => (currentTheme === 'light' ? 'dark' : 'light'));
-    };
+    
 
     return (
-        <div className="min-h-screen bg-base-100 font-sans">
-            {/* Theme Toggle Button */}
-            <div className="fixed top-4 right-4 z-50">
-                <button 
-                    onClick={toggleTheme} 
-                    className="btn btn-circle btn-[#228B22] shadow-lg"
-                    aria-label="Toggle theme"
-                >
-                    {theme === 'light' ? <Moon className="w-6 h-6" /> : <Sun className="w-6 h-6" />}
-                </button>
-            </div>
-            
-            {/* Dummy Content to show the contrast and footer placement */}
-            <div className="text-center p-12 max-w-4xl mx-auto pt-24">
-                <h1 className="text-5xl font-extrabold text-base-content">
-                    CleanCommunity Demo
-                </h1>
-                <p className="mt-4 text-xl text-base-content/80">
-                    Scroll down to see the fully responsive and dark-mode compatible footer. Toggle the theme button on the top right!
-                </p>
-                <div className="h-[60vh] flex items-center justify-center">
-                    <Sparkles className="w-20 h-20 text-warning animate-bounce" />
-                </div>
-            </div>
-
+        <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-emerald-900/20 font-sans">
             {/* The responsive Footer component */}
             <Footer />
         </div>

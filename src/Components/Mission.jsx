@@ -36,9 +36,8 @@ const missions = [
 
 const MissionSection = () => {
   return (
-    <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto my-10 bg-base-200 rounded-3xl shadow-2xl">
+    <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto my-10 ">
       
-      {/* Title with decorative element */}
       <h2 className="text-5xl font-extrabold text-center text-base-content mb-4">
         Our Mission
       </h2>
@@ -46,7 +45,6 @@ const MissionSection = () => {
         We are dedicated to fostering a cleaner, more responsible community through technology and collaboration.
       </p>
 
-      {/* Mission Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {missions.map((mission, index) => (
           <div
@@ -56,17 +54,14 @@ const MissionSection = () => {
             style={{ borderTopColor: '#228B22' }}
           >
             <div className="card-body p-0 items-center text-center">
-                {/* Icon Circle */}
                 <div className="mb-4 p-4 rounded-full bg-base-200 border-2" style={{ borderColor: '#228B22' }}>
                     {mission.icon}
                 </div>
 
-                {/* Title */}
                 <h3 className="text-2xl font-bold mb-3" style={{ color: '#228B22' }}>
                     {mission.title}
                 </h3>
                 
-                {/* Description */}
                 <p className="text-base-content/80">
                     {mission.desc}
                 </p>
