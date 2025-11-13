@@ -5,6 +5,7 @@ import Loading from '../Components/Loading';
 import { Edit3, Trash2, FileText, Calendar, MapPin, DollarSign, X, RefreshCw, AlertCircle } from 'lucide-react';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router';
 
 const MyIssues = () => {
     const { user } = use(AuthContext)
@@ -136,7 +137,7 @@ const MyIssues = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-base-100 to-primary/10 pt-40 pb-20">
+        <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-emerald-900/20 pt-40 pb-20">
             <title>Community Cleanliness - My Issues</title>
 
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -192,9 +193,11 @@ const MyIssues = () => {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="btn btn-primary text-white font-semibold py-3 px-8 rounded-xl"
+                            className="btn bg-[#228B22] text-white font-semibold py-3 px-8 rounded-xl"
                         >
+                           <Link to="/addIssue">
                             Report First Issue
+                           </Link>
                         </motion.button>
                     </motion.div>
                 ) : (

@@ -75,12 +75,12 @@ const RecentIssuesUI = ({ issue, index }) => {
   // Get category color
   const getCategoryColor = (category) => {
     const colors = {
-      'Garbage': { gradient: 'from-red-500 to-orange-500', text: 'text-red-500' },
-      'Illegal Construction': { gradient: 'from-yellow-500 to-amber-500', text: 'text-yellow-500' },
-      'Broken Public Property': { gradient: 'from-blue-500 to-cyan-500', text: 'text-blue-500' },
-      'Road Damage': { gradient: 'from-purple-500 to-pink-500', text: 'text-purple-500' },
-      'Waterlogging': { gradient: 'from-teal-500 to-blue-500', text: 'text-teal-500' },
-      'Illegal Dumping': { gradient: 'from-gray-500 to-slate-500', text: 'text-gray-500' }
+      'Garbage': { gradient: 'from-green-500 to-emerald-500', text: 'text-green-500' },
+      'Illegal Construction': { gradient: 'from-lime-500 to-green-500', text: 'text-lime-500' },
+      'Broken Public Property': { gradient: 'from-teal-500 to-cyan-500', text: 'text-teal-500' },
+      'Road Damage': { gradient: 'from-emerald-500 to-teal-500', text: 'text-emerald-500' },
+      'Waterlogging': { gradient: 'from-cyan-500 to-blue-500', text: 'text-cyan-500' },
+      'Illegal Dumping': { gradient: 'from-slate-500 to-gray-500', text: 'text-slate-500' }
     };
     return colors[category] || { gradient: 'from-green-500 to-emerald-500', text: 'text-green-500' };
   };

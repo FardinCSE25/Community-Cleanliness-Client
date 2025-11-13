@@ -141,7 +141,7 @@ const MyContribution = () => {
                     <div className="stats shadow bg-green-100 dark:bg-[#1a3a1a] dark:text-white mt-4 md:mt-0">
                         <div className="stat">
                             <div className="stat-figure text-[#228B22]">
-                                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2v2m0 0a3 3 0 100 6 3 3 0 000-6zm-3 3h6" /></svg>
+                                {/* <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2v2m0 0a3 3 0 100 6 3 3 0 000-6zm-3 3h6" /></svg> */}
                             </div>
                             <div className="stat-title text-base-content/70">Total Contributions</div>
                             <div className="stat-value text-3xl font-extrabold" style={{ color: '#228B22' }}>
@@ -228,7 +228,8 @@ const MyContribution = () => {
                     {!isLoading && contribution.length === 0 && (
                         <div className="text-center py-12 bg-base-200">
                             <div className="mx-auto w-20 h-20 bg-base-300 rounded-full flex items-center justify-center mb-4">
-                                <svg className="w-10 h-10" style={{ color: '#228B22' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 3.866-3.582 7-8 7s-8-3.134-8-7 3.582-7 8-7 8 3.134 8 7z" clipRule="evenodd" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m-4-8h8" /></svg>
+                                {/* <svg className="w-10 h-10" style={{ color: '#228B22' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 3.866-3.582 7-8 7s-8-3.134-8-7 3.582-7 8-7 8 3.134 8 7z" clipRule="evenodd" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m-4-8h8" /></svg> */}
+                                <h1 className='text-4xl font-medium'>৳</h1>
                             </div>
                             <h3 className="text-xl font-semibold text-base-content mb-2">No Contributions Found</h3>
                             <p className="text-base-content/70">
@@ -251,7 +252,7 @@ const MyContribution = () => {
                         <h4 className="text-lg font-semibold text-base-content">Contribution Receipts & Records</h4>
                         <p className="text-base-content/70 mt-1">
                             Use the **Download Receipt** button to save an official PDF record of your donation. This documentation from 
-                            **FardinMicrosoft Limited** verifies your support for the community cleanliness initiative.
+                            **Community Cleanliness & Issue Reporting Portal** verifies your support for the community cleanliness initiative.
                         </p>
                     </div>
                 </div>

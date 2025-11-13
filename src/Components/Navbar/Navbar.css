@@ -6,9 +6,18 @@
   color: #2c3e50;
   border-radius: 5px;
 }
-ul a{
-  color: black
+@media (prefers-color-scheme: dark) {
+  ul a {
+    color: white;
+  }
 }
+
+@media (prefers-color-scheme: light) {
+  ul a {
+    color: black;
+  }
+}
+
 ul a.active{
   text-decoration: underline;
   color: #228B22;

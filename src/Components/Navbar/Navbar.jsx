@@ -96,11 +96,11 @@ const Navbar = () => {
     return (
         <>
             <div
-                className={`bg-white fixed shadow-lg bg-opacity-95 pb-4 backdrop-blur-sm w-full flex justify-center top-0 z-1000 md:px-7 transition-all duration-300 ease-in-out`}
+                className={`bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-emerald-900/20 fixed shadow-lg bg-opacity-95 pb-4 backdrop-blur-sm w-full flex justify-center top-0 z-1000 md:px-7 transition-all duration-300 ease-in-out`}
             >
-                <div className="w-full z-50 px-5 pt-2 2xl:max-w-screen-2xl flex items-center justify-between mt-5 md:mt-2">
+                <div className="w-full z-50 px-5 pt-2 2xl:max-w-screen-2xl flex items-center md:justify-between mt-5 md:mt-2">
                     <div className="md:hidden font-bold text-3xl dropdown">
-                        <button tabIndex={0} className="mr-5 cursor-pointer text-[#228B22]">
+                        <button tabIndex={0} className=" cursor-pointer text-[#228B22]">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-7 w-7"
@@ -119,18 +119,18 @@ const Navbar = () => {
                     
                         <ul
                             tabIndex={0}
-                            className="menu z-10000  w-44 p-2 menu-sm dropdown-content font-semibold bg-white border border-blue-200 rounded-lg shadow-lg transition-transform duration-300"
+                            className="menu z-10000 w-44 p-2 menu-sm dropdown-content font-semibold bg-white border border-blue-200 rounded-lg shadow-lg transition-transform duration-300"
                         >
                             {navOptions}
                         </ul>
                     </div>
 
-                    <div>
+                    <div className="">
                         <Link to="/">
                             <img
                                 src={logo}
                                 alt="Logo"
-                                className="w-16 rounded-full md:ml-16 pb-3 md:pb-0"
+                                className="w-16 rounded-full ml-4 md:ml-0 pb-3 md:pb-0"
                             />
                         </Link>
                     </div>
@@ -141,9 +141,9 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <div className="flex justify-between items-center gap-7">
+                    <div className="flex items-center ">
                         {user &&
-                            <div className="dropdown dropdown-end">
+                            <div className="dropdown lg:ml-0 ml-64 dropdown-end">
                                 <div
                                     tabIndex={0}
                                     role="button"
@@ -182,8 +182,9 @@ const Navbar = () => {
                             </div>
                         }
 
-                        {
-                            !user && <Link to="/login" className="btn text-white bg-[#228B22]">
+                        <div className="ml-18 md:ml-0">
+                            {
+                            !user && <Link to="/login" className="btn md:mr-4 mr-1 text-white bg-[#228B22]">
                                 Login
                             </Link>
                         }
@@ -193,6 +194,7 @@ const Navbar = () => {
                                 Register
                             </Link>
                         }
+                        </div>
 
 
 
