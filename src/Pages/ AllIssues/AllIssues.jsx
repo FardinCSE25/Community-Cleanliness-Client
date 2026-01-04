@@ -43,7 +43,7 @@ const AllIssues = () => {
         <div className="min-h-screen bg-gray-50/50">
             <title>Community Cleanliness - All Issues</title>
 
-            <div className='max-w-7xl mx-auto pt-44 pb-12 px-4 sm:px-6 lg:px-8'>
+            <div className='max-w-11/12 mx-auto pt-44 pb-12 px-4 sm:px-6 lg:px-8'>
 
                 <motion.div
                     className='md:flex justify-between items-center mb-10 p-6 bg-white rounded-2xl shadow-lg border border-gray-100'
@@ -74,7 +74,7 @@ const AllIssues = () => {
 
 
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"

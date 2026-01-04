@@ -61,16 +61,16 @@ const Navbar = () => {
                 </li>
             </NavLink>
 
+            <NavLink
+                to="/addIssue"
+            >
+                <li className="text-lg mr-5">
+                    Add Issue
+                </li>
+            </NavLink>
+
             {
                 user && <>
-                    <NavLink
-                        to="/addIssue"
-
-                    >
-                        <li className="text-lg mr-5">
-                            Add Issue
-                        </li>
-                    </NavLink>
                     <NavLink
                         to="/myIssues"
 

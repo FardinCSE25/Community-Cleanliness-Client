@@ -41,7 +41,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/issueDetails/:id",
-                element: <PrivateRoute><IssueDetails /></PrivateRoute>,
+                element: <IssueDetails />,
                 loader: () => fetch("https://community-cleanliness-server-phi.vercel.app/issues"),
                 hydrateFallbackElement: <Loading />
             },

@@ -2,7 +2,7 @@ import React, { use, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
-import { Eye, EyeOff, Mail, Lock, LogIn, Key } from 'lucide-react';
+import { Eye, EyeOff, Mail, Lock, LogIn } from 'lucide-react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 
